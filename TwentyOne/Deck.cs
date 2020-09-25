@@ -23,7 +23,7 @@ namespace TwentyOne
                 "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"
             };
 
-            //FOR EVERY 'face' in 'Faces' WE 
+            //FOR EVERY 'face' IN 'Faces' AND FOR EVERY 'suit' IN 'SUITS' WE...
             foreach (string face in Faces)
             {
                 //CREATE A NEW CARD DURING EACH LOOP THAT ASSIGNS THE 'Suit' VALUE THE PROPERTY OF 'suit' AND THE 'face' VALUE TO THE PROPERTY OF 'face'
