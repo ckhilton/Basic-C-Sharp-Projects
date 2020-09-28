@@ -21,36 +21,23 @@ namespace TwentyOne
                 //THE CODE I WANT TO WORK
                 try
                 {
+                  
+
                     //GET USER INPUT
                     Console.Write("\n=========================================== START ===================================================\n" +
-                        "\n\tENTER YOUR HOURLY WAGE (AS A DECIMAL): $");
+                        "\n\tENTER YOUR ANNUAL GROSS WAGE AS A WHOLE NUMBER $");
                     //GET USER INPUT AS A DECIMAL
-                    int hourly = Convert.ToInt32(Console.ReadLine());
+                    int gross = Convert.ToInt32(Console.ReadLine());
                     //GET OPTIONAL SECOND PARAMETER
                     Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tOPTIONAL: ENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS (BLANK WILL DEFAULT TO 40): ");
+                        "\n\tOPTIONAL: ENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS: ");
 
-                    int gross;
-                    //GET USER INPUT AS A STRING VALUE
-                    string hours = Console.ReadLine();
-                    //IF INPUT IS AN EMPTY STRING THEN USE DEFAULT FOR 'hours' in 'Gross()'
-                    if (hours.Equals(""))
-                    {
-                        gross = Salary.Gross(hourly);
-                        //OUTPUT INFO
-                        Console.WriteLine("\n\t----------------------------------------------------");
-                        Console.WriteLine("\n\tBASED ON THE DEFAULT 40 HOUR WORK WEEK... " +
-                            "\n\n\t\t  - YOUR ANNUAL GROSS INCOME IS: " + String.Format("{0:C}", gross) + " (APPROXIMATELY)\n");
-                    }
-                    //ELSE CONVERT INPUT 
-                    else
-                    {
-                        gross = Salary.Gross(hourly, Convert.ToInt32(hours));
-                        //OUTPUT INFO
-                        Console.WriteLine("\n\t----------------------------------------------------");
-                        Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK... " +
-                            "\n\n\t\t  - ANNUAL GROSS INCOME IS: " + String.Format("{0:C}", gross) + " (APPROXIMATELY)\n");
-                    }                    
+                    Salary.Gross();
+
+                    
+                    
+
+                    
                 }
 
                 //================ EXCEPTION HANDLING ================              
