@@ -21,35 +21,26 @@ namespace TwentyOne
                 //THE CODE I WANT TO WORK
                 try
                 {
+                    //GET USER INPUT
                     Console.Write("\n=========================================== START ===================================================\n" +
+                        "\n\tENTER YOUR HOURLY WAGE (AS A DECIMAL): $");
+                    //GET USER INPUT AS A DECIMAL
+                    int hourly = Convert.ToInt32(Console.ReadLine());
+
+                    Console.Write("\n=========================================== NEXT ===================================================\n" +
                         "\n\tENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS: ");
                     //GET USER INPUT
                     int hours = Convert.ToInt32(Console.ReadLine());
                     //CALL FUNCTION
-                    int annualHours = Salary.Gross(hours);
+                    int gross = Salary.Gross(hourly, out hours);
                     //OUTPUT/USER INFO FOR ANNUAL AVERAGE
                     Console.WriteLine("\n\t----------------------------------------------------");
-                    Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK, YOU WILL WORK APPROX... " +
-                        "\n\n\t\t  - HOURS PER YEAR: " + annualHours + " (APPROXIMATELY)\n");
-                    //GET USER INPUT
-                    Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tENTER YOUR HOURLY WAGE (AS A DECIMAL): $");
-                    //GET USER INPUT AS A DECIMAL
-                    float hourly = float.Parse(Console.ReadLine());
-                    //CALL FLOAT-TO-INTEGER FUNCTION
-                    int gross = Salary.Gross(hourly);
-                    Console.WriteLine("\n\t\t  - APPROXIMATE GROSS ANNUAL INCOME:\t" + String.Format("{0:C}", gross) + "\n");
-
-                    //GET USER INPUT
-                    Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tHOW MANY UNPAID VACATIONS DAYS TO YOU GET EACH YEAR? ");
-                    string number = Console.ReadLine();
-                    //CALL STRING-TO-INTEGER FUNCTION
-                    int days = Salary.Gross(number);
-                    Console.WriteLine("\n\t\t  - PAID WORKING DAYS ANNUALLY:\t" + days + "\n");
+                    Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK... " +
+                        "\n\n\t\t  - ANNUAL INCOME IS: " + gross + " (APPROXIMATELY)\n");
                 }
 
-              
+                
+
                 //================ EXCEPTION HANDLING ================              
                 //WRONG FORMAT CATCH
                 catch (FormatException ex)
@@ -80,7 +71,7 @@ namespace TwentyOne
                         "\n\t                 ---- (PRESS ENTER TO RUN AGAIN) ----\n\n" +
                         "\t\t\t\t            OR\n\n" +
                         "\t\t        XXX (PRESS \'X\' TO EXIT THE PROGRAM) XX");
-                        
+
                     string exit = Console.ReadLine();
                     //OPTION TO EXIT WITH CONTROLLED CASE SENSITIVITY
                     if ((exit == "x") || (exit == "X"))
