@@ -24,33 +24,34 @@ namespace TwentyOne
                 {
                     Console.WriteLine("\n=========================================== START ===================================================\n");
                     //USER INSTRUCTIONS
-                    Console.WriteLine("\tON AVERAGE, HOW MANY HOURS DO YOU WORK IN A TYPICAL WORK-WEEK? ENTER IN AS A WHOLE NUMBER/NO DECIMALS i.e. 35 OR 40");
+                    Console.WriteLine("\tHOW MANY HOURS DO YOU WORK IN A TYPICAL WORK-WEEK? (NO DECIMALS) ");                   
                     //GET USER INPUT 
                     int hours = Convert.ToInt32(Console.ReadLine());
-
+                    //CALL FUNCTION
+                    int annualHours = Salary.Gross(hours);
                     //OUTPUT/USER INFO FOR ANNUAL AVERAGE
-                    Console.WriteLine("BASED ON WORKING AN AVERAGE OG " + hours + " HOURS PER WEEK, YOU WORK APPROXIMATELY " + annualHours);
+                    Console.WriteLine("\tBASED ON WORKING " + hours + " HOURS PER WEEK, YOU WILL WORK APPROX... " +
+                        "\n\n\t" + annualHours + " HOURS ANNUALLY");
 
-
-                    //USER INSTRUCTIONS
-                    Console.WriteLine("\tENTER AN HOURLY WAGE: ");
-                    //GET USER INPUT AS A DECIMAL
-                    float hours = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("\n\t----------------------------------------------------");
+                    ////USER INSTRUCTIONS
+                    //Console.WriteLine("\tENTER AN HOURLY WAGE: ");s
+                    ////GET USER INPUT AS A DECIMAL
+                    //float hour = Convert.ToInt32(Console.ReadLine());
+                    //Console.WriteLine("\n\t----------------------------------------------------");
                     
                     
-                    //CALL FLOAT-TO-INTEGER VERSION OF FUNCTION
-                    float grossWeekly = Salary.Gross(hours);
-                    Console.WriteLine("\n\t  - YOUR AVERAGE GROSS WEEKLY INCOME:\t" + String.Format("{0:C}", grossWeekly));
+                    ////CALL FLOAT-TO-INTEGER VERSION OF FUNCTION
+                    //float grossWeekly = Salary.Gross(hours);
+                    //Console.WriteLine("\n\t  - YOUR AVERAGE GROSS WEEKLY INCOME:\t" + String.Format("{0:C}", grossWeekly));
 
 
                     
-                    //OUTPUT/GIVE USER INFORMATION FOR ANNUAL SALARY
-                    Console.WriteLine("\n\tBASED ON AN HOURLY WAGE OF " + String.Format("{0:C}", hourly) + " PER HOUR ..." +
-                        "\n\n\tYOUR ANNUAL SALARY INFORMATION IS AS FOLLOWS ...");
-                    //CALL INTEGER-TO-INTEGER VERSION OF FUNCTION
-                    int gross = Salary.Gross(hourly);
-                    Console.WriteLine("\n\t  - GROSS ANNUAL INCOME:\t" + String.Format("{0:C}", gross));
+                    ////OUTPUT/GIVE USER INFORMATION FOR ANNUAL SALARY
+                    //Console.WriteLine("\n\tBASED ON AN HOURLY WAGE OF " + String.Format("{0:C}", hourly) + " PER HOUR ..." +
+                    //    "\n\n\tYOUR ANNUAL SALARY INFORMATION IS AS FOLLOWS ...");
+                    ////CALL INTEGER-TO-INTEGER VERSION OF FUNCTION
+                    //int gross = Salary.Gross(hourly);
+                    //Console.WriteLine("\n\t  - GROSS ANNUAL INCOME:\t" + String.Format("{0:C}", gross));
 
                     
                     
