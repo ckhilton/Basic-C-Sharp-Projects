@@ -29,14 +29,18 @@ namespace TwentyOne
 
                     Console.Write("\n=========================================== NEXT ===================================================\n" +
                         "\n\tENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS: ");
+      
                     //GET USER INPUT
                     int hours = Convert.ToInt32(Console.ReadLine());
+
+                 
                     //CALL FUNCTION
-                    int gross = Salary.Gross(hourly, out hours);
+                    
+                    int gross = Salary.Gross(hourly, hours);
                     //OUTPUT/USER INFO FOR ANNUAL AVERAGE
                     Console.WriteLine("\n\t----------------------------------------------------");
                     Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK... " +
-                        "\n\n\t\t  - ANNUAL INCOME IS: " + gross + " (APPROXIMATELY)\n");
+                        "\n\n\t\t  - WEEKLY INCOME IS: " + gross + " (APPROXIMATELY)\n");
                 }
 
                 
