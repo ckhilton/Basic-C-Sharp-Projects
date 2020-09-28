@@ -10,30 +10,30 @@ namespace TwentyOne
     {
         //SET ATTRIBUTES TO PUBLIC AND ALLOW GET:SET
         public int hours { get; set; }
-        public float hourly { get; set; }
+        public int hourly { get; set; }
         public string number { get; set; }
 
         //SIMPLE MATH METHODS/FUNCTIONS
 
         //TAKES AN INT AND RETURNS AN INT
-        public static int Gross(int hours)
+        public static int Gross(int hours, int hourly)
         {
-            int annualHours = hours * 52;
-            return annualHours;
+            int gross = hours * hourly;
+            return gross;
         }
 
-        //TAKES A DECIMAL/FLOAT AND RETURNS AN INTEGER
-        public static int Gross(float hourly)
-        {
-            float gross = hourly * 2080;
-            return Convert.ToInt32(gross);
-        }
+        ////TAKES A DECIMAL/FLOAT AND RETURNS AN INTEGER
+        //public static int Gross(float hourly)
+        //{
+        //    float gross = hourly * 2080;
+        //    return Convert.ToInt32(gross);
+        //}
 
-        //TAKES A STRING AND RETURNS AN INTEGER
-        public static int Gross(string number)
-        {
-            int days = 260 - int.Parse(number);
-            return days;
-        }   
+        ////TAKES A STRING AND RETURNS AN INTEGER
+        //public static int Gross(string number)
+        //{
+        //    int days = 260 - int.Parse(number);
+        //    return days;
+        //}   
     }    
 }
