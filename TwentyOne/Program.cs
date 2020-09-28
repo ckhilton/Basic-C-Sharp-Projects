@@ -40,7 +40,7 @@ namespace TwentyOne
                         //OUTPUT INFO
                         Console.WriteLine("\n\t----------------------------------------------------");
                         Console.WriteLine("\n\tBASED ON THE DEFAULT 40 HOUR WORK WEEK... " +
-                            "\n\n\t\t  - YOUR ANNUAL GROSS INCOME IS: " + gross + " (APPROXIMATELY)\n");
+                            "\n\n\t\t  - YOUR ANNUAL GROSS INCOME IS: " + String.Format("{0:C}", gross) + " (APPROXIMATELY)\n");
                     }
                     //ELSE CONVERT INPUT 
                     else
@@ -49,7 +49,7 @@ namespace TwentyOne
                         //OUTPUT INFO
                         Console.WriteLine("\n\t----------------------------------------------------");
                         Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK... " +
-                            "\n\n\t\t  - ANNUAL GROSS INCOME IS: " + gross + " (APPROXIMATELY)\n");
+                            "\n\n\t\t  - ANNUAL GROSS INCOME IS: " + String.Format("{0:C}", gross) + " (APPROXIMATELY)\n");
                     }                    
                 }
 
