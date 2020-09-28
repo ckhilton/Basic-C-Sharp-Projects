@@ -26,24 +26,32 @@ namespace TwentyOne
                         "\n\tENTER YOUR HOURLY WAGE (AS A DECIMAL): $");
                     //GET USER INPUT AS A DECIMAL
                     int hourly = Convert.ToInt32(Console.ReadLine());
-
+                    //GET OPTIONAL SECOND PARAMETER
                     Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS: ");
-      
-                    //GET USER INPUT
-                    int hours = Convert.ToInt32(Console.ReadLine());
+                        "\n\tOPTIONAL: ENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS (BLANK WILL DEFAULT TO 40): ");
 
-                 
-                    //CALL FUNCTION
-                    
-                    int gross = Salary.Gross(hourly, hours);
-                    //OUTPUT/USER INFO FOR ANNUAL AVERAGE
-                    Console.WriteLine("\n\t----------------------------------------------------");
-                    Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK... " +
-                        "\n\n\t\t  - WEEKLY INCOME IS: " + gross + " (APPROXIMATELY)\n");
+                    int gross;
+                    //GET USER INPUT AS A STRING VALUE
+                    string hours = Console.ReadLine();
+                    //IF INPUT IS AN EMPTY STRING THEN USE DEFAULT FOR 'hours' in 'Gross()'
+                    if (hours.Equals(""))
+                    {
+                        gross = Salary.Gross(hourly);
+                        //OUTPUT INFO
+                        Console.WriteLine("\n\t----------------------------------------------------");
+                        Console.WriteLine("\n\tBASED ON THE DEFAULT 40 HOUR WORK WEEK... " +
+                            "\n\n\t\t  - YOUR ANNUAL GROSS INCOME IS: " + gross + " (APPROXIMATELY)\n");
+                    }
+                    //ELSE CONVERT INPUT 
+                    else
+                    {
+                        gross = Salary.Gross(hourly, Convert.ToInt32(hours));
+                        //OUTPUT INFO
+                        Console.WriteLine("\n\t----------------------------------------------------");
+                        Console.WriteLine("\n\tBASED ON WORKING " + hours + " HOURS PER WEEK... " +
+                            "\n\n\t\t  - ANNUAL GROSS INCOME IS: " + gross + " (APPROXIMATELY)\n");
+                    }                    
                 }
-
-                
 
                 //================ EXCEPTION HANDLING ================              
                 //WRONG FORMAT CATCH
@@ -88,7 +96,7 @@ namespace TwentyOne
 
             //DISCLAIMER AND REFERENCES FOR USER
             Console.WriteLine("\n=====================================================================================================");
-            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 219 ASSIGNMENT\" PROGRAM" +
+            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 220 ASSIGNMENT\" PROGRAM" +
                 "\n\n\t(PRESS ENTER TO CLOSE THE WINDOW)\n");
             Console.ReadKey(true);
         }
