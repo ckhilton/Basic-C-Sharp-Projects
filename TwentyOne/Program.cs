@@ -11,8 +11,7 @@ namespace TwentyOne
         static void Main(string[] args) //***NOTE: AN ACCESS MODIFIER EXAMPLE IS 'public', WHICH WOULD GIVE ACCESS TO THE FUNCTION FROM THE REST OF THE PROGRAM
         {
             //============================= STEP 216 ASSIGNMENT =============================
-            Console.Write("\n===================================== STEP 219 ASSIGNMENT ===========================================\n" +
-                "\n  THIS CONSOLE APP WILL...\n");
+            Console.Write("\n===================================== STEP 219 ASSIGNMENT ===========================================\n");
             //CONTROL VARIABLE
             bool executing = true;
 
@@ -34,7 +33,7 @@ namespace TwentyOne
                         "\n\n\t\t  - HOURS PER YEAR: " + annualHours + " (APPROXIMATELY)\n");
                     //GET USER INPUT
                     Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tENTER YOUR HOURLY WAGE (CAN BE AS A DECIMAL): $");
+                        "\n\tENTER YOUR HOURLY WAGE (AS A DECIMAL): $");
                     //GET USER INPUT AS A DECIMAL
                     float hourly = float.Parse(Console.ReadLine());
                     //CALL FLOAT-TO-INTEGER FUNCTION
@@ -43,7 +42,7 @@ namespace TwentyOne
 
                     //GET USER INPUT
                     Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tHOW MANY UNPAID VACATIONS DAYS TO YOU GET EACH YEAR?: ");
+                        "\n\tHOW MANY UNPAID VACATIONS DAYS TO YOU GET EACH YEAR? ");
                     string number = Console.ReadLine();
                     //CALL STRING-TO-INTEGER FUNCTION
                     int days = Salary.Gross(number);
@@ -78,9 +77,9 @@ namespace TwentyOne
                 {
                     //PROGRAM NOTE   
                     Console.Write("======================================= END TRY/CATCH ===============================================\n" +
-                        "\n\t             ---- (PRESS ENTER TO TRY ANOTHER HOURLY WAGE) ----\n\n" +
+                        "\n\t                 ---- (PRESS ENTER TO RUN AGAIN) ----\n\n" +
                         "\t\t\t\t            OR\n\n" +
-                        "\t\t        XXX (PRESS \'X\' TO SEE REFERENCE/SOURCE) XX");
+                        "\t\t        XXX (PRESS \'X\' TO EXIT THE PROGRAM) XX");
                         
                     string exit = Console.ReadLine();
                     //OPTION TO EXIT WITH CONTROLLED CASE SENSITIVITY
@@ -94,12 +93,8 @@ namespace TwentyOne
 
             //DISCLAIMER AND REFERENCES FOR USER
             Console.WriteLine("\n=====================================================================================================");
-
-            Console.WriteLine("\nREFERENCE: " +
-                "\n\n*** THE AVERAGE SINGLE AMERICAN GAVE 29.6% TO 3 TAXES IN 2018: INCOME, MEDICARE, AND SOCIAL SECURITY.\n" +
-                "\nSOURCE: " +
-                "\n\nhttps://www.thebalance.com/what-the-average-american-pays-in-taxes-4768594#:~:text=The%20average%20income%20tax%20rate,one%20study%20of%20BLS%20numbers.");
-            Console.WriteLine("\n(PRESS ENTER TO CLOSE WINDOW)\n");
+            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 219 ASSIGNMENT\" PROGRAM" +
+                "\n\n\t(PRESS ENTER TO CLOSE THE WINDOW)\n");
             Console.ReadKey(true);
         }
     }
