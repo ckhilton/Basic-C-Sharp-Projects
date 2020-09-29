@@ -9,7 +9,7 @@ namespace TwentyOne
     //AN ABSTRACT CLASS CAN NEVER BE TURNED INTO AN OBJECT; IT IS ONLY MEANT TO BE INHERITED BY OTHER CLASSES
     public abstract class Game //*NOTE: MAKE INHERITED CLASSES AS GENERIC AS POSSIBLE FUTURE INHERITING CLASSES
     {
-        public List<string> Players { get; set; }
+        public List<Player> Players { get; set; }
         public string Name { get; set; }
         public string Dealer { get; set; }
 
@@ -17,7 +17,7 @@ namespace TwentyOne
         
         public virtual void ListPlayers() //A VIRTUAL METHOD ONLY EXISTS INSIDE AN ABSTRACT CLASS; IT MEANS THAT THIS METHOD GETS INHERITED BY AN INHERITING CLASS BUT IT HAS THE ABILITY TO OVERRIDE IT (I.E.VIRTUAL METHODS HAVE IMPLEMENTATION BUT THEY CAN BE OVERWRITTEN).
         {
-            foreach (string player in Players)
+            foreach (Player player in Players)
             {
                 Console.WriteLine(player);
             }
