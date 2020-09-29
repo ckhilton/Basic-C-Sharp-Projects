@@ -10,13 +10,40 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
+            //USER INSTRUCTIONS 
+            Console.WriteLine("\tWE BELIEVE WE HAVE DUPLICATE EMPLOYEE RECORDS FOR YOU. " +
+                "\n\n\tPLEASE FILL OUT THE FOLLOWING FOR THE FIRST RECORD:");
+            //GET USER INPUT FOR FIRST NAME
+            Console.WriteLine("\n\tYOUR LEGAL FIRST NAME: ");
+            string first = Console.ReadLine();
+            //GET USER INPUT FOR LAST NAME
+            Console.WriteLine("\n\n\tYOUR LAST NAME: \n");
+            string last1 = Console.ReadLine();
+            //GET USER EMPLOYEE ID
+            Console.WriteLine("\n\n\tENTER YOUR EMPLOYEE ID: \n");
+            int Id1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\tFILL OUT THE FOLLOWING FOR THE SECOND RECORD: ");
+
+            //USER INSTRUCTIONS
+            Console.WriteLine("ENTER YOUR MIDDLE NAME: \n");
+            string middle = Console.ReadLine();
+            //GET USER INPUT FOR LAST NAME AGAIN
+            Console.WriteLine("YOUR LAST NAME AGAIN: \n");
+            string last2 = Console.ReadLine();
+            Console.WriteLine("YOUR EMPLOYEE ID AGAIN: \n");
+            int Id2 = Convert.ToInt32(Console.ReadLine());
+
+
+
             //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
             Employee employee1 = new Employee();
             Employee employee2 = new Employee(); 
             //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' OBJECT
-            employee1.FullName(FirstName: "Christopher", Full: out string Full1, LastName: "Hilton");
-            employee2.FullName(FirstName: "Kirk", Full: out string Full2, LastName: "Hilton");
+            employee1.FullName(FirstName: first, Full: out string Full1, LastName: last1);
+            employee2.FullName(FirstName: middle, Full: out string Full2, LastName: last2);
 
+            //CONDITION TO BE CHECKED BASED UPON EMPLOYEE ID 
             if (employee1 == employee2)
             {
                 Console.WriteLine(Full1 + " IS THE SAME EMPLOYEE AS " + Full2);
