@@ -8,26 +8,14 @@ namespace TwentyOne
 {
     public class Salary
     {
-        public static void Gross()
+        //TAKES 2 INTEGERS (DISPLAYS 2ND INTEGER)
+        public void Gross(int daily = 8, int weekly = 40)
         {
-            int hours = 40;
-            int hourly = 40;
-
+            int annual = daily * 260;
+            Console.WriteLine("A STANDARD WORK WEEK IS " + weekly + " HOURS.");
         }
-
-        
-
-
-        //TAKES 2 INTEGERS (FIRST  AND RETURNS AN INT
-        //    public static void Gross(int gross, int hours)
-        //    {
-
-        //        hours = Convert.ToInt32(Console.ReadLine());           
-        //        Console.WriteLine("\n\tIF YOUR WORKED FULL TIME (2080 HOURS) FOR A YEAR WITH AN ANNUAL SALARY OF: " + string.Format("{0:C}", gross) +
-        //            "\n\n\tYOUR WEEK FOR 52 WEEKS..." +
-        //            "\n\n\t\t  - YOU WOULD HAVE TO WORK FOR " + ho + " ");
-        //    }
-        //}
     }
-
 }
+   
+
+

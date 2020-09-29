@@ -21,23 +21,14 @@ namespace TwentyOne
                 //THE CODE I WANT TO WORK
                 try
                 {
-                  
+                    Console.WriteLine("\t ENTER YOUR AVERAGE NUMBER OF DAILY HOURS AT WORK: ");
+                    int dailyInput = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("\n\n\tENTER YOUR AVERAGE NUMBER OF WEEKLY HOURS WORKING: ");
+                    int weeklyInput = Convert.ToInt32(Console.ReadLine());
 
-                    //GET USER INPUT
-                    Console.Write("\n=========================================== START ===================================================\n" +
-                        "\n\tENTER YOUR ANNUAL GROSS WAGE AS A WHOLE NUMBER $");
-                    //GET USER INPUT AS A DECIMAL
-                    int gross = Convert.ToInt32(Console.ReadLine());
-                    //GET OPTIONAL SECOND PARAMETER
-                    Console.Write("\n=========================================== NEXT ===================================================\n" +
-                        "\n\tOPTIONAL: ENTER YOUR AVERAGE NUMBER OF WEEKLY WORK HOURS: ");
-
-                    Salary.Gross();
-
-                    
-                    
-
-                    
+                    Salary salary = new Salary();
+                    salary.Gross(dailyInput, weeklyInput);
+                    salary.Gross(daily: dailyInput, weekly: weeklyInput);                  
                 }
 
                 //================ EXCEPTION HANDLING ================              
