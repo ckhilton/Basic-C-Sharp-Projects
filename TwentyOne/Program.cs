@@ -13,25 +13,37 @@ namespace TwentyOne
             //USER INSTRUCTIONS 
             Console.WriteLine("\tWE BELIEVE WE HAVE DUPLICATE EMPLOYEE RECORDS FOR YOU. " +
                 "\n\n\tPLEASE FILL OUT THE FOLLOWING FOR THE FIRST RECORD:");
-            //GET USER INPUT FOR FIRST NAME
-            Console.WriteLine("\n\tYOUR LEGAL FIRST NAME: ");
-            string first = Console.ReadLine();
-            //GET USER INPUT FOR LAST NAME
-            Console.WriteLine("\n\n\tYOUR LAST NAME: \n");
-            string last1 = Console.ReadLine();
+            //GET USER INPUT FOR FIRST NAME 
+            //Console.Write("\n" +
+            //    "\tYOUR LEGAL FIRST NAME: ");                             
+            //string first = Console.ReadLine();
+
+            ////GET USER INPUT FOR LAST NAME
+            //Console.Write("\n" +
+            //    "\tYOUR LEGAL LAST NAME: ");
+            //string last1 = Console.ReadLine();
+
             //GET USER EMPLOYEE ID
-            Console.WriteLine("\n\n\tENTER YOUR EMPLOYEE ID: \n");
+            Console.Write("\n" +
+                "\tYOUR EMPLOYEE ID: ");
             int Id1 = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("\tFILL OUT THE FOLLOWING FOR THE SECOND RECORD: ");
+            Console.WriteLine("\n\t===================================================================================" +
+                "\n\n\tFILL OUT THE FOLLOWING TO CHECK THE SECOND RECORD: ");
 
-            //USER INSTRUCTIONS
-            Console.WriteLine("ENTER YOUR MIDDLE NAME: \n");
-            string middle = Console.ReadLine();
-            //GET USER INPUT FOR LAST NAME AGAIN
-            Console.WriteLine("YOUR LAST NAME AGAIN: \n");
-            string last2 = Console.ReadLine();
-            Console.WriteLine("YOUR EMPLOYEE ID AGAIN: \n");
+            ////GET USER INPUT FOR FIRST NAME 
+            //Console.Write("\n" +
+            //    "\tYOUR MIDDLE NAME: ");
+            //string goesBy = Console.ReadLine();
+
+            ////GET USER INPUT FOR LAST NAME AGAIN 
+            //Console.Write("\n" +
+            //    "\tYOUR LAST NAME AGAIN: ");
+            //string last2 = Console.ReadLine();
+
+            //GET USER EMPLOYEE ID 
+            Console.Write("\n" +
+                "\tYOUR EMPLOYEE ID AGAIN (IF GIVEN 2 DIFFERENT ID'S, PLEASE ENTER THE SECOND): ");
             int Id2 = Convert.ToInt32(Console.ReadLine());
 
 
@@ -39,20 +51,21 @@ namespace TwentyOne
             //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
             Employee employee1 = new Employee();
             Employee employee2 = new Employee(); 
-            //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' OBJECT
-            employee1.FullName(FirstName: first, Full: out string Full1, LastName: last1);
-            employee2.FullName(FirstName: middle, Full: out string Full2, LastName: last2);
+            //CALL SUPERCLASS METHOD 'FullName' ON THE 'Employee' OBJECT
+            //employee1.employeeInfo(Id: Id1, FirstName: first, Info: out string Full1, LastName: last1);
+            //employee2.employeeInfo(Id: Id2, FirstName: goesBy, Info: out string Full2, LastName: last2);
 
             //CONDITION TO BE CHECKED BASED UPON EMPLOYEE ID 
-            if (employee1 == employee2)
+            if (employee1.Id == employee2.Id)
             {
-                Console.WriteLine(Full1 + " IS THE SAME EMPLOYEE AS " + Full2);
+                Console.WriteLine("\n\t" + /*Full1 +*/ 
+                    "\n\n\tIS THE SAME EMPLOYEE AS " +
+                    "\n\n\t" /*+ Full2*/);
             }
             else
             {
                 Console.WriteLine("THESE ARE TWO DIFFERENT EMPLOYEES");
-            } 
-         
+            }        
             Console.ReadLine();          
         }
     }
