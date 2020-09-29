@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 namespace TwentyOne
 {
     //CREATE CLASS 'Employee' THAT INHERITS SUPERCLASS 'Person' 
-    public class Employee : Person
+    public class Employee : Person, IQuittable
     {
         //CREATE PUBLIC PROPERTY 'Id' AS TYPE INTEGER
         public int Id { get; set; }
+
+        public void Quit(Employee employee)
+        {
+            Console.WriteLine("THIS EMPLOYEE QUIT");
+        }
     }
+    
 }
 
 //namespace TwentyOne
