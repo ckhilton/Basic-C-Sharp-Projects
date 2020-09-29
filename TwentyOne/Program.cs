@@ -10,18 +10,25 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
+            Console.WriteLine("\n=============================== STEP 240 ===============================");
             //CREATE NEW EMPTY LIST CALLED 'names' FROM THE INHERITED PROPERTIES OF 'Person'
             List<Person> newlyHired = new List<Person>();
             //CREATE A NEW EMPLOYEE TO ADD TO THE LIST
             Employee name = new Employee();
+            
+            //DISPLAY COMPANY WELCOME INFO
+            Console.WriteLine("\nWELCOME TO THE COMPANY, LETS START WITH SOME BASIC PAPERWORK...");
 
-            //GET USER INPUT
-            Console.WriteLine("\n\tHELLO, WELCOME TO THE COMPANY!" +
-                "\n\n\tPLEASE ENTER YOUR FIRST NAME: ");
+            //USER INSTRUCTIONS
+            Console.Write("\n" +
+                "\tPLEASE ENTER YOUR FIRST NAME: ");
+            //GET WEEKLY HOURS WORKED AS AN INTEGER                    
             string inputFirst = Console.ReadLine();
 
-            Console.WriteLine("\n" +
-                "\n\tPLEASE ENTER YOUR LAST NAME: ");
+            //USER INSTRUCTIONS
+            Console.Write("\n" +
+                "\tPLEASE ENTER YOUR LAST NAME: ");
+            //GET WEEKLY HOURS WORKED AS AN INTEGER                    
             string inputLast = Console.ReadLine();
 
             //CALL ABSTRACT METHOD ON THE 'name' OBJECT
@@ -30,54 +37,20 @@ namespace TwentyOne
             newlyHired.Add(name);
 
             //DISPLAY INFO TO USER
-            Console.WriteLine("HERE IS HOW YOUR NAME WILL APPEAR ON COMPANY RECORDS: " +
-                "\n\n\t\t" + Full);
+            Console.WriteLine("\n\tYOUR NAME WILL APPEAR ON COMPANY RECORDS AS FOLLOWS..." +
+                "\n\n\t\tFULL NAME: " + Full +
+                "\n\n\t(PRESS ENTER)");
+            Console.ReadLine();
 
+            Console.WriteLine("\tIT TURNS OUT THE COMPANY YOU JUST JOINED UP WITH IS DOING SHADY BUSINESS! " +
+                "\n\n\tPRESS ENTER TO QUIT THE JOB IMMEDIATELY!");
+            Console.ReadLine();
+
+            //CALL INTERFACE 'Quit()' FUNCTION AND DISPLAY OUTPUT
             name.Quit(name);
             
-
-
-            //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
-            //Employee employee = new Employee() { FirstName = "Sample ", LastName = "Student" };
-            //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' CLASS OBJECT NAMED 'person'
-            //employee.Quit(employee); 
             
             Console.ReadLine();          
         }
     }
 }
-
-//namespace TwentyOne
-//{
-//    class Program
-//    {
-//        static void Main(string[] args)
-//        {
-//            //CREATE LIST
-//            List<Game> games = new List<Game>();
-//            TwentyOneGame game = new TwentyOneGame();
-//            //ADD A 'game' TO THE LIST 'games' WHICH WILL USE POLYMORPHISM 
-//            games.Add(game);
-
-//            Deck deck = new Deck();
-//            deck.Shuffle(3);
-
-//            foreach (Card card in deck.Cards)
-//            {
-//                Console.WriteLine(card.Face.ToUpper() + " OF " + card.Suit.ToUpper());
-//            }
-//            Console.WriteLine("\n\tTOTAL COUNT OF CARDS CREATED: " + deck.Cards.Count);
-//            Console.ReadLine();
-
-//            ////INSTANTIATE 'TwentyOneGame' OBJECT FROM THE SUPERCLASS 'Game' (aka 'Game' CLASS IS INHERITED BY 'TwentyOneGame')
-//            //TwentyOneGame game = new TwentyOneGame();            
-//            //game.Players = new List<string>() { "Kirk", "Bill", "Joe" };
-//            //game.ListPlayers();
-//            //game.Play(); //THIS IS THE ONLY METHOD OR PROPERTY THAT IS SPECIFIC TO THE 'TwentyOneGame' CLASS (NOT ACCESSIBLE TO THE 'Game' METHOD)
-//            //Console.ReadLine();
-
-//        }
-//    }
-//}
-
-
