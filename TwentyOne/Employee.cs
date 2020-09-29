@@ -17,7 +17,7 @@ namespace TwentyOne
         }
         public void Quit(Employee employee)
         {
-            List<Employee> 
+            
         }
 
     }    
