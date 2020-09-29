@@ -23,7 +23,7 @@ namespace TwentyOne
                 //TRY-CATCH: THE CODE I WANT TO WORK
                 try
                 {
-                    //INSTANTIATE CLASS OBJECT CALLED 'salary'
+                    //INSTANTIATE CLASS OBJECT CALLED 'box'
                     Pairs box = new Pairs();
 
                     //GET USER INPUT
@@ -31,13 +31,12 @@ namespace TwentyOne
                         "\n\tTOTAL SHOE COUNT: ");
                     //GET USER INPUT 
                     int totalShoes = Convert.ToInt32(Console.ReadLine());                                    
-                    //USE METHOD ON 'wedding' OBJECT AND PASS IN THE THE NUMBER OF COUPLES THE USER ENTERS
+                    //USE METHOD ON 'wedding' OBJECT AND PASS IN THE THE NUMBER OF SHOES THE USER FOUND
                     box.Shoes(total: totalShoes, out int pairs); 
                     
-                    //DISPLAY THE NUMBER OF COUPLES DIVIDED BY 2 TO GET THE TOTAL INVITATIONS TO SEND OUT
+                    //DISPLAY THE NUMBER OF SHOES DIVIDED BY 2 TO GET THE NUMBER OF PAIRS THAT SHOULD BE MATCHING
                     Console.WriteLine("\n\tWITH A TOTAL OF " + totalShoes + " SHOES IN THE BOX, YOU SHOULD HOPE TO FIND AT LEAST:" +
-                        "\n\n\t\t- " + pairs + " MATCHING PAIRS OF SHOES. :)\n");
-                    
+                        "\n\n\t\t- " + pairs + " MATCHING PAIRS OF SHOES. :)\n");                    
                 }
 
                 //================ EXCEPTION HANDLING ================              
