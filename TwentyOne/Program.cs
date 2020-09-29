@@ -8,10 +8,10 @@ namespace TwentyOne
 {
     class Program
     {
-        static void Main(string[] args) //***NOTE: AN ACCESS MODIFIER EXAMPLE IS 'public', WHICH WOULD GIVE ACCESS TO THE FUNCTION FROM THE REST OF THE PROGRAM
+        static void Main(string[] args) 
         {
-            //============================= STEP 216 ASSIGNMENT =============================
-            Console.Write("===================================== STEP 221 ASSIGNMENT ==========================================\n");
+            //============================= STEP 224 ASSIGNMENT =============================
+            Console.Write("===================================== STEP 224 ASSIGNMENT ==========================================\n");
             //CONTROL VARIABLE
             bool executing = true;
 
@@ -22,27 +22,19 @@ namespace TwentyOne
                 try
                 {
                     //INSTANTIATE CLASS OBJECT CALLED 'salary'
-                    Salary salary = new Salary();
+                    Invitations wedding = new Invitations();
 
-                    //CALL METHOD/FUNCTION AND PASS IN 2 NUMBERS (INTEGERS)
+                    //USER INSTRUCTIONS
                     Console.WriteLine("\n============================================ START =================================================\n" +
-                        "\n\t(BELOW I MANUALLY PASS IN 'daily' HOURS AND HOURLY 'wage' AS (8, 30)...PRESS ENTER)" + Console.ReadLine());
-                    salary.Gross(8, 30);
-                    
-                    //USER INSTRUCTIONS
-                    Console.Write("============================================= NEXT =================================================\n" +
-                        "\n\t(THIS TIME I WILL GET USER INPUT, PASS IT IN, AND SPECIFY THE PARAMETERS BY NAME...)\n" +
-                        "\n\tENTER THE NUMBER OF HOURS YOU WORKED TODAY: ");
-                    //GET DAILY HOURS WORKED AS AN INTEGER
-                    int dailyInput = Convert.ToInt32(Console.ReadLine());
-                    //USER INSTRUCTIONS
-                    Console.Write("\n" +
-                        "\tENTER YOUR HOURLY WAGE: ");
-                    //GET WEEKLY HOURS WORKED AS AN INTEGER                    
-                    int hourly = Convert.ToInt32(Console.ReadLine());                   
-                    
+                        "\n\tENTER IN THE NUMBER OF COUPLES INVITED TO THE WEDDING: ");
+                    //GET USER INPUT
+                    int inputCouples = Convert.ToInt32(Console.ReadLine());                   
                     //CALL METHOD/FUNCTION BY NAME AND PASS IN SAME 2 NUMBERS (INTEGERS)
-                    salary.Gross(daily: dailyInput, wage: hourly);     
+                    wedding.Invites(inputCouples, out int invites); 
+                    
+                    //DISPLAY THE NUMBER OF COUPLES DIVIDED BY 2 TO GET THE TOTAL INVITATIONS TO SEND OUT
+                    Console.WriteLine("WITH A TOTAL OF " + inputCouples + " COUPLES ON YOUR LIST, YOU'LL NEED:" +
+                        "\n\n\t\t" + invites + " TOTAL INVITATIONS");
                     
                 }
 
