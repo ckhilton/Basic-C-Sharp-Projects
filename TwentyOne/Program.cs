@@ -44,8 +44,9 @@ namespace TwentyOne
                     //GET USER INPUT 
                     float size = float.Parse(Console.ReadLine());
 
-                    //USE METHOD ON 'box' OBJECT AND PASS IN THE THE NUMBER OF SHOES THE USER FOUND
+                    //USE METHOD 'Shoes' ON 'box' OBJECT AND PASS IN THE THE NUMBER OF SHOES THE USER FOUND
                     box.Shoes(total: totalShoes, out int pairs);
+                    //USE OVERLOADED METHOD 'Shoes' ON 'box' OBJECT AND PASS IN THE SIZE AND DESCRIPTIONS FROM THE USER
                     box.Shoes(size: size, out string description, brand: brand);
 
                     //USER INSTRUCTIONS                                   
