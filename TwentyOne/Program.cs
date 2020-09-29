@@ -15,7 +15,7 @@ namespace TwentyOne
             Player player = new Player();
             player.Name = "Kirk";
             game += player; //SAME THING AS game = game + player;
-            game += player; //SAME THING AS game = game - player;
+            game -= player; //SAME THING AS game = game - player;
             Deck deck = new Deck();
             deck.Shuffle(3);
 
