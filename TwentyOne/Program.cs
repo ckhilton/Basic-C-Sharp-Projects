@@ -10,15 +10,37 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
-            List<Person> employees = new List<Person>();
-            Person person = new Person(); {  };
-            employees.Add(person);
+            //CREATE NEW EMPTY LIST CALLED 'names' FROM THE INHERITED PROPERTIES OF 'Person'
+            List<Person> newlyHired = new List<Person>();
+            //CREATE A NEW EMPLOYEE TO ADD TO THE LIST
+            Employee name = new Employee();
+
+            //GET USER INPUT
+            Console.WriteLine("\n\tHELLO, WELCOME TO THE COMPANY!" +
+                "\n\n\tPLEASE ENTER YOUR FIRST NAME: ");
+            string inputFirst = Console.ReadLine();
+
+            Console.WriteLine("\n" +
+                "\n\tPLEASE ENTER YOUR LAST NAME: ");
+            string inputLast = Console.ReadLine();
+
+            //CALL ABSTRACT METHOD ON THE 'name' OBJECT
+            name.FullName(FirstName: inputFirst.ToUpper(), out string Full, LastName: inputLast.ToUpper());
+            //ADD NAME TO THE 'List<Person>' OF 'newlyHired' (USE POLYMORPHISM)
+            newlyHired.Add(name);
+
+            //DISPLAY INFO TO USER
+            Console.WriteLine("HERE IS HOW YOUR NAME WILL APPEAR ON COMPANY RECORDS: " +
+                "\n\n\t\t" + Full);
+
+            name.Quit(name);
+            
 
 
             //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
-            Employee employee = new Employee() { FirstName = "Sample ", LastName = "Student" };
+            //Employee employee = new Employee() { FirstName = "Sample ", LastName = "Student" };
             //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' CLASS OBJECT NAMED 'person'
-            employee.Quit(employee); 
+            //employee.Quit(employee); 
             
             Console.ReadLine();          
         }

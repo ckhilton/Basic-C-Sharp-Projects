@@ -10,10 +10,9 @@ namespace TwentyOne
     public class Employee : Person, IQuittable
     {
         //IMPLEMENT THE ABSTRACT 'Person' CLASS 'SayName()' METHOD
-        public override void SayName()
+        public override void FullName(string FirstName, out string Full, string LastName)
         {
-            //DISPLAY FULL NAME TO CONSOLE USING INPUT CONTROL METHOD '.ToUpper()'
-            Console.WriteLine("NAME: " + FirstName.ToUpper() + LastName.ToUpper());
+            Full = FirstName + " " + LastName;
         }
         public void Quit(Employee employee)
         {

@@ -9,11 +9,12 @@ namespace TwentyOne
     public abstract class Person
     {
         //PUBLIC STRING PROPERTIES 'FirstName' AND 'LastName'
-        public List<string> Employees { get; set; }
+        public List<string> Names { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Full { get; set; }
 
         //DECLARE ABSTRACT METHOD (ALL INHERITING CLASSES MUST IMPLEMENT THE 'SayName()' METHOD
-        public abstract void SayName();
+        public abstract void FullName(string FirstName, out string Full, string LastName);
     }
 }
