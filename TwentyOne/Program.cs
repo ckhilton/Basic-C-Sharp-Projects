@@ -12,8 +12,8 @@ namespace TwentyOne
         {
             //============================= STEP 224 ASSIGNMENT =============================
             Console.Write("===================================== STEP 224 ASSIGNMENT ==========================================\n" +
-                "\n\n\tYOU JUST CAME ACROSS A GIANT BOX OF SHOES IN YOUR WIFE'S CLOSET." +
-                "\n\n\tAFTER YOU COUNT THEM, YOU GET A TOTAL OF...\n");
+                "\n\n\tYOU JUST CAME ACROSS A GIANT BOX OF SHOES IN YOUR SPOUSE' CLOSET." +
+                "\n\n\tAFTER YOU DUMP THEM ALL OUT ON THE FLOOR, YOU FIND...\n");
             //CONTROL VARIABLE
             bool executing = true;
 
@@ -26,18 +26,57 @@ namespace TwentyOne
                     //INSTANTIATE CLASS OBJECT CALLED 'box'
                     Pairs box = new Pairs();
 
-                    //GET USER INPUT
+                    //USER INSTRUCTIONS
                     Console.Write("\n=========================================== START ===================================================\n" +
-                        "\n\tTOTAL SHOE COUNT: ");
+                        "\n\tTOTAL NUMBER OF INDVIDUAL SHOES? ");
                     //GET USER INPUT 
-                    int totalShoes = Convert.ToInt32(Console.ReadLine());                                    
+                    int totalShoes = Convert.ToInt32(Console.ReadLine());
+
+                    //USER INSTRUCTIONS
+                    Console.Write("\n" +
+                        "\tTHE MOST POPULAR BRAND? ");
+                    //GET USER INPUT 
+                    string brand = Console.ReadLine();
+
+                    //USER INSTRUCTIONS
+                    Console.Write("\n" +
+                        "\tTHE MOST FREQUENTLY FOUND SIZE? ");
+                    //GET USER INPUT 
+                    float size = float.Parse(Console.ReadLine());
+
                     //USE METHOD ON 'box' OBJECT AND PASS IN THE THE NUMBER OF SHOES THE USER FOUND
-                    box.Shoes(total: totalShoes, out int pairs); 
-                    
-                    //DISPLAY THE NUMBER OF SHOES DIVIDED BY 2 TO GET THE NUMBER OF PAIRS THAT SHOULD BE MATCHING
+                    box.Shoes(total: totalShoes, out int pairs, size: size, brand: brand);
+
+                    //USER INSTRUCTIONS                                   
+                    Console.WriteLine("\n\t(PRESS ENTER)");                       
+                    Console.ReadLine();
+                    Console.WriteLine("\n=====================================================================================================\n");
+
+                    //DISPLAY OUTPUT TO USER
                     Console.WriteLine("\n\tWITH A TOTAL OF " + totalShoes + " SHOES IN THE BOX, YOU SHOULD HOPE TO FIND AT LEAST:" +
-                        "\n\n\t\t- " + pairs + " MATCHING PAIRS OF SHOES. :)\n");
-                    
+                        "\n\n\t\t- " + pairs + " MATCHING PAIRS OF SHOES.\n" +
+                        "\n\tTHE NEXT SHOES YOUR SPOUSE WILL MOST LIKELY BUY WILL BE A PAIR OF:" +
+                        "\n\n\t\t- SIZE " + size + " " + brand.ToUpper() + "\'S.\n");
+
+                    //USER INSTRUCTIONS
+                    Console.WriteLine("\t\t(PRESS ENTER)");
+                    Console.ReadLine();
+
+                    //USER INSTRUCTIONS
+                    Console.Write("\n========================================== PART 2 ===================================================\n" +
+                        "\n\tSITUATION: YOU AND YOUR SIBLING DECIDE THAT YOU WILL START SHARING A PHONE PLAN TO SAVE MONEY...\n");
+                    //GET USER INPUT FOR TOTAL MONTHLY BILL
+                    Console.Write("\n=====================================================================================================\n" +
+                        "\n\tHOW MUCH IS THE TOTAL BILL PER MONTH? $");                   
+                    float total = float.Parse(Console.ReadLine());
+
+                    //CALL FUNCTION FROM STATIC CLASS 'Phones'
+                    Phones.Bill(total: total, out float each, out float yearly);
+
+                    //OUTPUT
+                    Console.Write("\n\tEACH PERSON WILL PAY:" +
+                        "\n\n\t\t" + string.Format("{0:C}", each ) + " PER MONTH" +
+                        "\n\n\t\t" + string.Format("{0:C}", yearly) + " PER YEAR\n\n");
                 }
 
                 //================ EXCEPTION HANDLING ================              
