@@ -12,6 +12,13 @@ namespace TwentyOne
         //CREATE PUBLIC PROPERTY 'Id' AS TYPE INTEGER
         public int Id { get; set; }
 
+        //IMPLEMENT THE ABSTRACT 'Person' CLASS 'SayName()' METHOD
+        public override void FullName(string FirstName, out string Full, string LastName)
+        {
+            Full = FirstName + " " + LastName;
+        }
+
+        //IMPLEMENT INTERFACE METHOD 'Quit' 
         public void Quit(Employee employee)
         {
             Console.WriteLine("THIS EMPLOYEE QUIT");
