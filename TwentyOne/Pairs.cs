@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    public class Invitations
+    public class Pairs
     {
         //TAKES 1 INTEGER (OUTPUTS 1 INTEGER)
-        public void Invites(int couples, out int invites)
+        public void Shoes(int total, out int pairs)
         {
-            invites = couples / 2;
-            //DISPLAY
-            Console.WriteLine("\n\t hello");  
+            //DIVIDE INPUT BY 
+            pairs = total / 2; 
         }
     }
 }

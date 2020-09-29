@@ -11,30 +11,32 @@ namespace TwentyOne
         static void Main(string[] args) 
         {
             //============================= STEP 224 ASSIGNMENT =============================
-            Console.Write("===================================== STEP 224 ASSIGNMENT ==========================================\n");
+            Console.Write("===================================== STEP 224 ASSIGNMENT ==========================================\n" +
+                "\n\n\tYOU JUST CAME ACROSS A GIANT BOX OF SHOES IN YOUR WIFE'S CLOSET." +
+                "\n\n\tAFTER YOU COUNT THEM, YOU GET A TOTAL OF...\n");
             //CONTROL VARIABLE
             bool executing = true;
 
             //ENTER DO-WHILE LOOP (FOR EASE OF TESTING PROGRAM)
             do
             {
-                //THE CODE I WANT TO WORK
+                //TRY-CATCH: THE CODE I WANT TO WORK
                 try
                 {
                     //INSTANTIATE CLASS OBJECT CALLED 'salary'
-                    Invitations wedding = new Invitations();
+                    Pairs box = new Pairs();
 
-                    //USER INSTRUCTIONS
-                    Console.WriteLine("\n============================================ START =================================================\n" +
-                        "\n\tENTER IN THE NUMBER OF COUPLES INVITED TO THE WEDDING: ");
                     //GET USER INPUT
-                    int inputCouples = Convert.ToInt32(Console.ReadLine());                   
-                    //CALL METHOD/FUNCTION BY NAME AND PASS IN SAME 2 NUMBERS (INTEGERS)
-                    wedding.Invites(inputCouples, out int invites); 
+                    Console.Write("\n=========================================== START ===================================================\n" +
+                        "\n\tTOTAL SHOE COUNT: ");
+                    //GET USER INPUT 
+                    int totalShoes = Convert.ToInt32(Console.ReadLine());                                    
+                    //USE METHOD ON 'wedding' OBJECT AND PASS IN THE THE NUMBER OF COUPLES THE USER ENTERS
+                    box.Shoes(total: totalShoes, out int pairs); 
                     
                     //DISPLAY THE NUMBER OF COUPLES DIVIDED BY 2 TO GET THE TOTAL INVITATIONS TO SEND OUT
-                    Console.WriteLine("WITH A TOTAL OF " + inputCouples + " COUPLES ON YOUR LIST, YOU'LL NEED:" +
-                        "\n\n\t\t" + invites + " TOTAL INVITATIONS");
+                    Console.WriteLine("\n\tWITH A TOTAL OF " + totalShoes + " SHOES IN THE BOX, YOU SHOULD HOPE TO FIND AT LEAST:" +
+                        "\n\n\t\t- " + pairs + " MATCHING PAIRS OF SHOES. :)\n");
                     
                 }
 
@@ -81,7 +83,7 @@ namespace TwentyOne
 
             //DISCLAIMER AND REFERENCES FOR USER
             Console.WriteLine("\n=====================================================================================================");
-            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 221 ASSIGNMENT\" PROGRAM" +
+            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 224 ASSIGNMENT\" PROGRAM" +
                 "\n\n\t(PRESS ENTER TO CLOSE THE WINDOW)\n");
             Console.ReadKey(true);
         }
