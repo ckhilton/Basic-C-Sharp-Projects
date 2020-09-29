@@ -12,7 +12,8 @@ namespace TwentyOne
         //IMPLEMENT THE ABSTRACT 'Person' CLASS 'SayName()' METHOD
         public override void SayName()
         {
-            Console.WriteLine("NAME: " + FirstName + LastName);
+            //DISPLAY FULL NAME TO CONSOLE USING INPUT CONTROL METHOD '.ToUpper()'
+            Console.WriteLine("NAME: " + FirstName.ToUpper() + LastName.ToUpper());
         }           
     }    
 }
