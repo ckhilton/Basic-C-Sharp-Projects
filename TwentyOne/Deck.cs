@@ -8,20 +8,16 @@ namespace TwentyOne
 {
     public class Deck
     {
-        public Deck() //CREATE A PUBLIC METHOD/FUNCTION WITHIN THE CLASS CALLED 'public Deck()'
-        {
-            //CREATE A CONSTRUCTOR FOR THE CLASS 'Deck'
+        //CREATE A CONSTRUCTOR FOR THE CLASS 'Deck'
+        public Deck() //METHOD WITHIN THE PUBLIC CLASS 'Deck' CALLED 'Deck()'
+        {            
             Cards = new List<Card>(); //INSTANTIATE PROPERTY OF 'Cards' AS AN EMPTY LIST OF CARDS (ALWAYS HAVE TO CREATE A NEW LIST)
 
-            List<string> Suits = new List<string>() //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
-            {
-                "Clubs", "Hearts", "Diamonds", "Spades" 
-            };
-            List<string> Faces = new List<string>() //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
-            {
-                "Two", "Three", "Four", "Five", "Six", "Seven",
-                "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace"
-            };
+            //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
+            List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
+
+            //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
+            List<string> Faces = new List<string>() { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
 
             //FOR EVERY 'face' IN 'Faces' AND FOR EVERY 'suit' IN 'SUITS' WE...
             foreach (string face in Faces)
@@ -38,12 +34,23 @@ namespace TwentyOne
             }
         }
         public List<Card> Cards { get; set; }
+
+        //SHUFFLE THE DECK
+        public void Shuffle(int times = 1)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                List<Card> TempList = new List<Card>();
+                Random random = new Random();
+
+                while (Cards.Count > 0)
+                {
+                    int randomIndex = random.Next(0, Cards.Count);
+                    TempList.Add(Cards[randomIndex]);
+                    Cards.RemoveAt(randomIndex);
+                }
+                this.Cards = TempList;
+            }
+        }
     }
 }
-
-//------------- OLD CODE THAT WAS UPGRADED TO THE NEW, MORE EFFICIENT CODE ABOVE -----------
-//Cards = new List<Card>(); //INSTANTIATE A NEW EMPTY LIST OBJECT OF CARDS
-//Card cardOne = new Card(); //INSTANTIATE NEW CARD OBJECT (EMPTY PROPERTY VALUES) CALLED 'cardOne'
-//cardOne.Face = "Two"; //GIVE THE 'Face' PROPERTY OF 'cardOne' A DEFAULT VALUE OF "Two;"
-//cardOne.Suit = "Hearts"; //GIVE THE 'Suit' PROPERTY OF 'cardOne' A DEFAULT VALUE OF "Hearts;"
-//Cards.Add(cardOne); //ADD 'cardOne' TO THE 'Cards' LIST
