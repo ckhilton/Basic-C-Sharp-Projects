@@ -11,9 +11,10 @@ namespace TwentyOne
         static void Main(string[] args) 
         {
             //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
-            Employee employee = new Employee() { FirstName = "Sample ", LastName = "Student" };
+            Employee employee1 = new Employee() { Id = 1, FirstName = "Sample ", LastName = "Student" };
+            Employee employee2 = new Employee() { Id = 2, FirstName = "Kirk", LastName = "Hilton" };
             //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' OBJECT
-            employee.SayName(); 
+            employee1.SayName(); 
             
             Console.ReadLine();          
         }
