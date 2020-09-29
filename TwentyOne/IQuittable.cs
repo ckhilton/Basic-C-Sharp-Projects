@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    interface IQuit
+    //CREATE INTERFACE
+    interface IQuittable
     {
-
+        void Quit(Employee employee);
     }
 }
