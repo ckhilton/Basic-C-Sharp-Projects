@@ -45,7 +45,8 @@ namespace TwentyOne
                     float size = float.Parse(Console.ReadLine());
 
                     //USE METHOD ON 'box' OBJECT AND PASS IN THE THE NUMBER OF SHOES THE USER FOUND
-                    box.Shoes(total: totalShoes, out int pairs, size: size, brand: brand);
+                    box.Shoes(total: totalShoes, out int pairs);
+                    box.Shoes(size: size, out string description, brand: brand);
 
                     //USER INSTRUCTIONS                                   
                     Console.WriteLine("\n\t(PRESS ENTER)");                       
@@ -56,10 +57,10 @@ namespace TwentyOne
                     Console.WriteLine("\n\tWITH A TOTAL OF " + totalShoes + " SHOES IN THE BOX, YOU SHOULD HOPE TO FIND AT LEAST:" +
                         "\n\n\t\t- " + pairs + " MATCHING PAIRS OF SHOES.\n" +
                         "\n\tTHE NEXT SHOES YOUR SPOUSE WILL MOST LIKELY BUY WILL BE A PAIR OF:" +
-                        "\n\n\t\t- SIZE " + size + " " + brand.ToUpper() + "\'S.\n");
+                        "\n\n\t\t- " + description);
 
                     //USER INSTRUCTIONS
-                    Console.WriteLine("\t\t(PRESS ENTER)");
+                    Console.WriteLine("\n\t\t(PRESS ENTER)");
                     Console.ReadLine();
 
                     //USER INSTRUCTIONS
