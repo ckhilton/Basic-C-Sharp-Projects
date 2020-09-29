@@ -9,10 +9,14 @@ namespace TwentyOne
     public class Salary
     {
         //TAKES 2 INTEGERS (DISPLAYS 2ND INTEGER)
-        public void Gross(int daily = 8, int weekly = 40)
+        public void Gross(int daily, int weekly)
         {
             int annual = daily * 260;
-            Console.WriteLine("A STANDARD WORK WEEK IS " + weekly + " HOURS.");
+            //OUTPUT
+            Console.WriteLine("\n\tTHIS WEEK YOU WORKED: " +
+                "\n\n\t\t" + weekly + " HOURS " +
+                "\n\n\tIF YOU WORK ALL YEAR WITH A DAILY AVERAGE OF" + daily + " HOURS PER DAY... " +
+                "\n\n\t\t YOUR ANNUAL TOTAL HOURS WORKED WOULD BE: " + annual);  
         }
     }
 }
