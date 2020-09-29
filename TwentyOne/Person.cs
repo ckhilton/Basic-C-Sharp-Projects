@@ -9,6 +9,7 @@ namespace TwentyOne
     public abstract class Person
     {
         //PUBLIC STRING PROPERTIES 'FirstName' AND 'LastName'
+        public List<string> Employees { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
