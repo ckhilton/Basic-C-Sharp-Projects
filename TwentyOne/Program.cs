@@ -14,8 +14,8 @@ namespace TwentyOne
             Employee employee1 = new Employee() { Id = 1, FirstName = "Sample ", LastName = "Student" };
             Employee employee2 = new Employee() { Id = 2, FirstName = "Kirk", LastName = "Hilton" };
             //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' OBJECT
-            employee1.SayName();
-            employee2.SayName();
+            employee1.FullName();
+            employee2.FullName();
             
             Console.ReadLine();          
         }
