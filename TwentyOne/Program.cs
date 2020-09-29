@@ -11,12 +11,21 @@ namespace TwentyOne
         static void Main(string[] args) 
         {
             //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
-            Employee employee1 = new Employee() { Id = 1, FirstName = "Christopher ", LastName = "Hilton" };
-            Employee employee2 = new Employee() { Id = 2, FirstName = "Kirk", LastName = "Hilton" };
+            Employee employee1 = new Employee();
+            Employee employee2 = new Employee(); 
             //CALL SUPERCLASS METHOD 'SayName' ON THE 'Employee' OBJECT
-            employee1.FullName("Christopher", out string Full, "Hilton");
-            employee2.FullName("Kirk", out Full, "Hilton");
-            
+            employee1.FullName(FirstName: "Christopher", Full: out string Full1, LastName: "Hilton");
+            employee2.FullName(FirstName: "Kirk", Full: out string Full2, LastName: "Hilton");
+
+            if (employee1 == employee2)
+            {
+                Console.WriteLine(Full1 + " IS THE SAME EMPLOYEE AS " + Full2);
+            }
+            else
+            {
+                Console.WriteLine("THESE ARE TWO DIFFERENT EMPLOYEES");
+            } 
+         
             Console.ReadLine();          
         }
     }

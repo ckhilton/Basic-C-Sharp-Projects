@@ -9,13 +9,30 @@ namespace TwentyOne
     //CREATE CLASS 'Employee' THAT INHERITS SUPERCLASS 'Person' 
     public class Employee : Person, IQuittable
     {
+        public static bool operator ==(Employee employee1, Employee employee2)
+        {
+            if (employee1.Id == employee2.Id)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        public static bool operator !=(Employee employee1, Employee employee2)
+        {
+            return false;
+        }
+        
         //CREATE PUBLIC PROPERTY 'Id' AS TYPE INTEGER
         public int Id { get; set; }
 
         //IMPLEMENT THE ABSTRACT 'Person' CLASS 'SayName()' METHOD
         public override void FullName(string FirstName, out string Full, string LastName)
         {
-            Full = FirstName + " " + LastName;
+            Full = FirstName.ToUpper() + " " + LastName.ToUpper();
         }
 
         //IMPLEMENT INTERFACE METHOD 'Quit' 
