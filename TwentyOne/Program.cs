@@ -11,7 +11,7 @@ namespace TwentyOne
         static void Main(string[] args) //***NOTE: AN ACCESS MODIFIER EXAMPLE IS 'public', WHICH WOULD GIVE ACCESS TO THE FUNCTION FROM THE REST OF THE PROGRAM
         {
             //============================= STEP 216 ASSIGNMENT =============================
-            Console.Write("\n===================================== STEP 219 ASSIGNMENT ===========================================\n");
+            Console.Write("===================================== STEP 221 ASSIGNMENT ==========================================\n");
             //CONTROL VARIABLE
             bool executing = true;
 
@@ -21,24 +21,29 @@ namespace TwentyOne
                 //THE CODE I WANT TO WORK
                 try
                 {
-                    //USER INSTRUCTIONS
-                    Console.WriteLine("\n=========================================== START ===================================================\n" +
-                        "\n\t ENTER THE NUMBER OF HOURS YOU WORKED TODAY: ");
-                    //GET DAILY HOURS WORKED AS AN INTEGER
-                    int dailyInput = Convert.ToInt32(Console.ReadLine());
-                    //GET WEEKLY HOURS WORKED AS AN INTEGER
-                    Console.WriteLine("\n\n\tENTER THE NUMBER OF HOURS YOU WORKED THIS WEEK: ");
-                    int weeklyInput = Convert.ToInt32(Console.ReadLine());
-
-                    //INSTANTIATE CLASS
+                    //INSTANTIATE CLASS OBJECT CALLED 'salary'
                     Salary salary = new Salary();
+
                     //CALL METHOD/FUNCTION AND PASS IN 2 NUMBERS (INTEGERS)
+                    Console.WriteLine("\n============================================ START =================================================\n" +
+                        "\n\t(BELOW I MANUALLY PASS IN 'daily' HOURS AND HOURLY 'wage' AS (8, 30)...PRESS ENTER)" + Console.ReadLine());
                     salary.Gross(8, 30);
                     
-                    //CALL METHOD/FUNCTION BY NAME AND PASS IN SAME 2 NUMBERS (INTEGERS)
-                    salary.Gross(daily: dailyInput, weekly: weeklyInput);     
+                    //USER INSTRUCTIONS
+                    Console.Write("============================================= NEXT =================================================\n" +
+                        "\n\t(THIS TIME I WILL GET USER INPUT, PASS IT IN, AND SPECIFY THE PARAMETERS BY NAME...)\n" +
+                        "\n\tENTER THE NUMBER OF HOURS YOU WORKED TODAY: ");
+                    //GET DAILY HOURS WORKED AS AN INTEGER
+                    int dailyInput = Convert.ToInt32(Console.ReadLine());
+                    //USER INSTRUCTIONS
+                    Console.Write("\n" +
+                        "\tENTER YOUR HOURLY WAGE: ");
+                    //GET WEEKLY HOURS WORKED AS AN INTEGER                    
+                    int hourly = Convert.ToInt32(Console.ReadLine());                   
                     
-
+                    //CALL METHOD/FUNCTION BY NAME AND PASS IN SAME 2 NUMBERS (INTEGERS)
+                    salary.Gross(daily: dailyInput, wage: hourly);     
+                    
                 }
 
                 //================ EXCEPTION HANDLING ================              
@@ -84,7 +89,7 @@ namespace TwentyOne
 
             //DISCLAIMER AND REFERENCES FOR USER
             Console.WriteLine("\n=====================================================================================================");
-            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 220 ASSIGNMENT\" PROGRAM" +
+            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 221 ASSIGNMENT\" PROGRAM" +
                 "\n\n\t(PRESS ENTER TO CLOSE THE WINDOW)\n");
             Console.ReadKey(true);
         }
