@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    public class Person
+    public abstract class Person
     {       
         //PUBLIC STRING PROPERTIES 'FirstName' AND 'LastName'
         public string FirstName { get; set; }
