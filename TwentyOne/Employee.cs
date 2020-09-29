@@ -17,7 +17,7 @@ namespace TwentyOne
         public void Quit(Employee employee)
         {
             Console.WriteLine("\tCOMPANY: \"YOU QUIT ALREADY?\"" +
-                "\n\n\tYOU: \"YEP, AND IT'S A GOOD THING TOO!!!\"");           
+                "\n\n\tYOU: \"YEP, AND IT'S A GOOD THING TOO!!!\"\n");           
         }
     }    
 }
