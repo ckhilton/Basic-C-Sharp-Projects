@@ -10,7 +10,7 @@ namespace TwentyOne
     {
         static void Main(string[] args) //***NOTE: AN ACCESS MODIFIER EXAMPLE IS 'public', WHICH WOULD GIVE ACCESS TO THE FUNCTION FROM THE REST OF THE PROGRAM
         {
-            //============================= STEP 216 ASSIGNMENT =============================
+            //============================= STEP 221 ASSIGNMENT =============================
             Console.Write("===================================== STEP 221 ASSIGNMENT ==========================================\n");
             //CONTROL VARIABLE
             bool executing = true;
