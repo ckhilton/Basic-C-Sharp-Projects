@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace TwentyOne
 {
     //CREATE CLASS 'Employee' THAT INHERITS SUPERCLASS 'Person' 
-    public class Employee : Person 
+    public class Employee<T> : Person 
     {
+        //ADD PROPERTY CALL 'things' AS A GENERIC LIST
+
         //CREATE PUBLIC PROPERTY 'Id' AS TYPE INTEGER
         public int Id { get; set; }
 
@@ -37,3 +39,4 @@ namespace TwentyOne
         }
     }
 }
+
