@@ -29,7 +29,7 @@ namespace TwentyOne
             return false;
         }
 
-        //IMPLEMENT 'Person' CLASS 'SayName()' METHOD
+        //IMPLEMENT 'Person' CLASS 'employeeInfo()' METHOD
         public override void employeeInfo(int Id, string FirstName, out string Info, string LastName)
         {
             Info = "EMPLOYEE: " + FirstName.ToUpper() + " " + LastName.ToUpper() +

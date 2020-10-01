@@ -45,21 +45,19 @@ namespace TwentyOne
                     Console.WriteLine("\n\t=======================================================================================" +
                         "\n\n\tFOR VERIFICATION PURPOSES, PLEASE ENTER YOUR EMPLOYEE ID AGAIN: ");
 
-                    //GET USER EMPLOYEE ID 
+                    //VERIFY USER EMPLOYEE ID 
                     Console.Write("\n" +
                         "\tEMPLOYEE ID: ");
                     int Id2 = Convert.ToInt32(Console.ReadLine());
 
-
-
-                    //INSTANTIATE AND INITIATE 'Employee' OBJECT WITH ASSIGNED 'FirstName' AND 'LastName' VALUES
+                    //INSTANTIATE AND INITIATE 'Employee' OBJECTS
                     Employee employee1 = new Employee();
                     Employee employee2 = new Employee();
 
                     employee1.Id = Id1;
                     employee2.Id = Id2;
 
-                    //CALL SUPERCLASS METHOD 'FullName' ON THE 'Employee' OBJECT
+                    //CALL SUPERCLASS METHOD 'FullName' ON THE 'Employee' OBJECTS
                     employee1.employeeInfo(Id: Id1, FirstName: first, Info: out string Full1, LastName: last1);
                     employee2.employeeInfo(Id: Id2, FirstName: first, Info: out string Full2, LastName: last1);
 
@@ -117,7 +115,7 @@ namespace TwentyOne
             }
             while (executing);
 
-            //DISCLAIMER AND REFERENCES FOR USER
+            //EXIT PROGRAM INFO
             Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 245 ASSIGNMENT\" PROGRAM" +
                 "\n\n\t(PRESS ENTER TO CLOSE THE WINDOW)\n");
             Console.ReadKey(true);
