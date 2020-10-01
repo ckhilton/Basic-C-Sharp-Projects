@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    public class Person
+    public abstract class Person
     {
         //PUBLIC STRING PROPERTIES 'FirstName' AND 'LastName'
         //public List<string> Names { get; set; }
@@ -14,28 +14,12 @@ namespace TwentyOne
         public string LastName { get; set; }
         public string Info { get; set; }
 
+
+
         ////DECLARE ABSTRACT METHOD (ALL INHERITING CLASSES MUST IMPLEMENT THE 'FullName()' METHOD
-        //public abstract void employeeInfo(int Id, string FirstName, out string Info, string LastName);
+        public abstract void employeeInfo(int Id, string FirstName, out string Info, string LastName);
     }
 }
-
-//namespace TwentyOne
-//{
-//    public abstract class Person
-//    {       
-//        //PUBLIC STRING PROPERTIES 'FirstName' AND 'LastName'
-//        public string FirstName { get; set; }
-//        public string LastName { get; set; }
-
-//        //PUBLIC VOID METHOD WITH NO INPUTS
-//        public void SayName()
-//        {
-//            //DISPLAY PERSONS FULL NAME TO THE CONSOLE
-//            Console.WriteLine("Name: " + FirstName + LastName);
-//        }
-//    }
-//}
-
 //namespace TwentyOne
 //{
 //    public class Player
@@ -57,3 +41,21 @@ namespace TwentyOne
 //        }
 //    }
 //}
+//namespace TwentyOne
+//{
+//    public abstract class Person
+//    {       
+//        //PUBLIC STRING PROPERTIES 'FirstName' AND 'LastName'
+//        public string FirstName { get; set; }
+//        public string LastName { get; set; }
+
+//        //PUBLIC VOID METHOD WITH NO INPUTS
+//        public void SayName()
+//        {
+//            //DISPLAY PERSONS FULL NAME TO THE CONSOLE
+//            Console.WriteLine("Name: " + FirstName + LastName);
+//        }
+//    }
+//}
+
+
