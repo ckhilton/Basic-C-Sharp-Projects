@@ -10,12 +10,8 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
-            Game game = new TwentyOneGame();
-            game.Players = new List<Player>();
-            Player player = new Player();
-            player.Name = "Kirk";
-            game += player; //SAME THING AS game = game + player;
-            game -= player; //SAME THING AS game = game - player;
+            //NOTE* List<T> //THE 'T' ACTUALLY STANDS FOR 'TYPE' IN 'DATA TYPE'
+
             Deck deck = new Deck();
             deck.Shuffle(3);
 
@@ -29,4 +25,10 @@ namespace TwentyOne
     }
 }
 
+//Game game = new TwentyOneGame();
+//game.Players = new List<Player>();
+//Player player = new Player();
+//player.Name = "Kirk";
+//game += player; //SAME THING AS game = game + player;
+//game -= player; //SAME THING AS game = game - player;
 
