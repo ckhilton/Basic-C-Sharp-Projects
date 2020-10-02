@@ -10,80 +10,46 @@ namespace TwentyOne
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\n\tPLEASE ENTER THE CURRENT DAY OF THE WEEK: \n\n\t");
-            string input = /*"Wednesday";*/ Console.ReadLine();
-
-            Day today;
-            try
+            bool run = true;
+            do
             {
-                today = (Day)Enum.Parse(typeof(Day), input);
-            
+                try
+                {
 
-               
-                
+                    //GET USER INPUT FOR FIRST NAME 
+                    Console.Write("\n" +
+                        "\n\tPLEASE ENTER THE CURRENT DAY OF THE WEEK: ");
+                    string input = Console.ReadLine();
+
+                    Day today;
+
+                    today = (Day)Enum.Parse(typeof(Day), input);
+                    Console.WriteLine("\n\tTODAY IS: " + input.ToUpper());
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("\n\tPLEASE ENTER AN ACTUAL DAY OF THE WEEK");
+                    Console.WriteLine("\n\t" + ex.Message.ToUpper());
+                }
+                finally
+                {
+                    Console.WriteLine("\n\tYOU HAVE EXITED THE TRY-CATCH LOOP");
+                    Console.Write("\n" +
+                        "\t\n\tPRESS ENTER ENTER TO RUN THE PROGRAM AGAIN" +
+                        "\n\n\t\t OR" +
+                        "\n\n\tPRESS 'X' TO EXIT THE PROGRAM: ");
+                    string stop = Console.ReadLine();
+                    if (stop.ToUpper() == "X")
+                    {
+                        run = false;
+                        Console.WriteLine("\n=======================" +
+                            "\n\n\tPRESS ENTER");
+                    }
+                }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("PLEASE ENTER AN ACTUAL DAY OF THE WEEK");
-                Console.WriteLine(ex.Message);
-
-            }
-
-            //if (today == Day
-            //{
-            //    Console.WriteLine("TODAY IS...");
-            //}
-
-
-            
-            
-            //int today = Convert.ToInt32(date.Day);
-            //for (int i = 0; i < 7; i++)
-            //{
-            //    if (i == today)
-            //    {
-            //        Console.WriteLine("TODAY IS " + today);
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine("PLEASE ENTER AN ACTUAL DAY OF THE WEEK");
-            //    }
-            //}
-
+            while (run);
             Console.ReadLine();
         }
     }
 }
-
-
-//int input = Enum.Parse(today.Day);
-
-
-//Day weekday = Enum.TryParse(today);
-
-
-
-////USING THE ENUM FROM 'Card' CLASS
-//Card card = new Card();
-//card.Suit = Suit.Clubs;
-//int underlyingValue = (int)Suit.Diamonds; //CASTING THE ENUM TO IT'S UNDERLYING DATA TYPE (INT). THIS COULD HAVE ALSO BEEN WRITTEN OUT AS 'int underlyingValue = Convert.ToInt32(underlyingValue)'
-//Console.WriteLine(underlyingValue);
-
-//Deck deck = new Deck();
-//deck.Shuffle(3);
-
-//foreach (Card card in deck.Cards)
-//{
-//    Console.WriteLine(card.Face + " OF " + card.Suit);
-//}
-//Console.WriteLine("\n\tTOTAL COUNT OF CARDS CREATED: " + deck.Cards.Count);
-//Console.ReadLine();
-
-
-//Game game = new TwentyOneGame();
-//game.Players = new List<Player>();
-//Player player = new Player();
-//player.Name = "Kirk";
-//game += player; //SAME THING AS game = game + player;
-//game -= player; //SAME THING AS game = game - player;
 
