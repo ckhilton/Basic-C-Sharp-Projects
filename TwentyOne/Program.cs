@@ -21,16 +21,14 @@ namespace TwentyOne
             {
                 //THE CODE I WANT TO WORK
                 try
-                {
-                   
+                {                  
                     //USER INSTRUCTIONS 
                     Console.WriteLine("\n====================================================== START ======================================================\n");
 
                     //INSTANTIATE 'employee1' OBJECT WITH DATA TYPE <string> AS ITS PARAMETER (FROM THE GENERIC DATA TYPE GIVEN TO THE LIST PROPERTY 'things' IN THE CLASS)
                     Employee<string> employee1 = new Employee<string>();
                     employee1.Things = new List<string>();
-
-                  
+                 
                     //ASSIGN A LIST OF STRINGS ONE-BY-ONE TO THE EMPLOYEE OBJECT 'employee1' AS THE PROPERTY VALUE OF THINGS USING THE 'Add' METHOD
                     employee1.Things.Add("WELCOME PACKET");
                     employee1.Things.Add("BENEFITS PACKET");
@@ -58,7 +56,6 @@ namespace TwentyOne
                     {
                         Console.WriteLine("\t\t- " + ID + "\n");
                     }
-
                 }
 
                 //================ EXCEPTION HANDLING ================              
