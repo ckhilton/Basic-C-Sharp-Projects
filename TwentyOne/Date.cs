@@ -9,19 +9,19 @@ namespace TwentyOne
 
     public class Date
     {
-        public
+        public Month Month { get; set; }
         public Day Day { get; set; }
     }
     
     public enum Day
     {
-        Monday=1,
-        Tuesday=2,
-        Wednesday=3,
-        Thursday=4,
-        Friday=5,
-        Saturday=6,
-        Sunday=7
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
     }       
     
     public enum Month
