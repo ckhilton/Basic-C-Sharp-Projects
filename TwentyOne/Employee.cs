@@ -14,7 +14,7 @@ namespace TwentyOne
 
         public static bool operator ==(Employee employee1, Employee employee2)
         {
-            if (employee1.Id == employee2.Id)
+            if (employee1.Id == employee2.Id) 
             {
                 return true;
             }
@@ -26,7 +26,15 @@ namespace TwentyOne
         }
         public static bool operator !=(Employee employee1, Employee employee2)
         {
-            return false;
+            if (employee1.Id != employee2.Id)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
         }
 
         //IMPLEMENT 'Person' CLASS 'employeeInfo()' METHOD

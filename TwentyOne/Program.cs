@@ -62,7 +62,7 @@ namespace TwentyOne
                     employee2.employeeInfo(Id: Id2, FirstName: first, Info: out string Full2, LastName: last1);
 
                     //CONDITION TO BE CHECKED BASED UPON EMPLOYEE ID 
-                    if (employee1 == employee2)
+                    if (employee1 != employee2)
                     {
                         Console.WriteLine("\n\tYOUR EMPLOYEE ID HAS BEEN VALIDATED!\n");
                     }
