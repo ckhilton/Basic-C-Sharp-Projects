@@ -10,8 +10,8 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
-            //============================= STEP 245 ASSIGNMENT =============================
-            Console.Write("===================================== STEP 245 ASSIGNMENT =====================================\n");
+            //============================= STEP 248 ASSIGNMENT =============================
+            Console.Write("=============================================== STEP 248 ASSIGNMENT ===============================================\n");
 
             //CONTROL VARIABLE
             bool executing = true;
@@ -24,53 +24,41 @@ namespace TwentyOne
                 {
                    
                     //USER INSTRUCTIONS 
-                    Console.WriteLine("\n\tWELCOME, YOU ARE NOW ATTEMPTING TO ENTER ONLINE THE EMPLOYEE PORTAL. " +
-                        "\n\n============================================ START ============================================" +
-                        "\n\n\tPLEASE FILL OUT THE FOLLOWING:");
-                    //GET USER INPUT FOR FIRST NAME 
-                    Console.Write("\n" +
-                        "\tFIRST NAME: ");
-                    string first = Console.ReadLine();
+                    Console.WriteLine("\n====================================================== START ======================================================\n");
 
-                    ////GET USER INPUT FOR LAST NAME
-                    Console.Write("\n" +
-                        "\tLAST NAME: ");
-                    string last1 = Console.ReadLine();
+                    //INSTANTIATE 'employee1' OBJECT WITH DATA TYPE <string> AS ITS PARAMETER (FROM THE GENERIC DATA TYPE GIVEN TO THE LIST PROPERTY 'things' IN THE CLASS)
+                    Employee<string> employee1 = new Employee<string>();
+                    employee1.Things = new List<string>();
 
-                    //GET USER EMPLOYEE ID
-                    Console.Write("\n" +
-                        "\tEMPLOYEE ID: ");
-                    int Id1 = Convert.ToInt32(Console.ReadLine());
+                  
+                    //ASSIGN A LIST OF STRINGS ONE-BY-ONE TO THE EMPLOYEE OBJECT 'employee1' AS THE PROPERTY VALUE OF THINGS USING THE 'Add' METHOD
+                    employee1.Things.Add("WELCOME PACKET");
+                    employee1.Things.Add("BENEFITS PACKET");
+                    employee1.Things.Add("ID BADGE");
+                    employee1.Things.Add("NAME TAG");
+                    employee1.Things.Add("LAPTOP");
 
-                    Console.WriteLine("\n\t=======================================================================================" +
-                        "\n\n\tFOR VERIFICATION PURPOSES, PLEASE ENTER YOUR EMPLOYEE ID AGAIN: ");
+                    //OUTPUT INFORMATION ABOUT OBJECT 'employee1'
+                    Console.WriteLine("\tTHIS DISPLAYS THE LIST OF STRINGS FROM AN OBJECT CREATED FROM THE GENERIC-PARAMETERED CLASS \'Employee<T>\'\n");
 
-                    //VERIFY USER EMPLOYEE ID 
-                    Console.Write("\n" +
-                        "\tEMPLOYEE ID: ");
-                    int Id2 = Convert.ToInt32(Console.ReadLine());
-
-                    //INSTANTIATE AND INITIATE 'Employee' OBJECTS
-                    Employee employee1 = new Employee();
-                    Employee employee2 = new Employee();
-
-                    employee1.Id = Id1;
-                    employee2.Id = Id2;
-
-                    //CALL SUPERCLASS METHOD 'FullName' ON THE 'Employee' OBJECTS
-                    employee1.employeeInfo(Id: Id1, FirstName: first, Info: out string Full1, LastName: last1);
-                    employee2.employeeInfo(Id: Id2, FirstName: first, Info: out string Full2, LastName: last1);
-
-                    //CONDITION TO BE CHECKED BASED UPON EMPLOYEE ID 
-                    if (employee1 == employee2)
+                    foreach (string item in employee1.Things)
                     {
-                        Console.WriteLine("\n\tYOUR EMPLOYEE ID HAS BEEN VALIDATED!\n");
+                        Console.WriteLine("\t\t- " + item + "\n");
                     }
-                    else
+
+                    Console.WriteLine("===================================================================================================================\n");
+
+                    //INSTANTIATE 'employeeID_List' OBJECT WITH DATA TYPE <int> AS ITS PARAMETER...
+                    Employee<int> companyID_List = new Employee<int>();
+                    companyID_List.Things = new List<int> { 100, 101, 102, 103, 104, 105, 106, 107 };
+
+                    Console.WriteLine("\tCOMPANY EMPLOYEE ID'S (INTEGERS) STORED IN ANOTHER OBJECT FROM THE GENERIC-PARAMETERED CLASS \'Employee<T>\'\n");
+
+                    foreach (int ID in companyID_List.Things)
                     {
-                        Console.WriteLine("\n\tEMPLOYEE ID: " + Id2 + " DID NOT MATCH!" +
-                            "\n\n\tPLEASE CHECK YOUR EMPLOYEE ID CAREFULLY AND TRY AGAIN\n");
+                        Console.WriteLine("\t\t- " + ID + "\n");
                     }
+
                 }
 
                 //================ EXCEPTION HANDLING ================              
@@ -99,13 +87,13 @@ namespace TwentyOne
                 finally
                 {
                     //PROGRAM NOTE   
-                    Console.Write("======================================== END TRY/CATCH ========================================\n" +
+                    Console.Write("================================================== END TRY/CATCH ==================================================\n" +
                         "\n\t                 ---- (PRESS ENTER TO RUN AGAIN) ----\n\n" +
                         "\t\t\t\t            OR\n\n" +
                         "\t\t        XXX (PRESS \'X\' TO EXIT THE PROGRAM) XX");
 
                     string exit = Console.ReadLine();
-                    Console.WriteLine("\n===============================================================================================");
+                    Console.WriteLine("\n===================================================================================================================");
                     //OPTION TO EXIT WITH CONTROLLED CASE SENSITIVITY
                     if ((exit == "x") || (exit == "X"))
                     {
@@ -116,7 +104,7 @@ namespace TwentyOne
             while (executing);
 
             //EXIT PROGRAM INFO
-            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 245 ASSIGNMENT\" PROGRAM" +
+            Console.WriteLine("\n\tTHANK YOU FOR USING THE \"STEP 248 ASSIGNMENT\" PROGRAM" +
                 "\n\n\t(PRESS ENTER TO CLOSE THE WINDOW)\n");
             Console.ReadKey(true);
         }

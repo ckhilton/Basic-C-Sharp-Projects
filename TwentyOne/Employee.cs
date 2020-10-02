@@ -7,36 +7,9 @@ using System.Threading.Tasks;
 namespace TwentyOne
 {
     //CREATE CLASS 'Employee' THAT INHERITS SUPERCLASS 'Person' 
-    public class Employee<T> : Person 
+    public class Employee<T>
     {
-        //ADD PROPERTY CALL 'things' AS A GENERIC LIST
-
-        //CREATE PUBLIC PROPERTY 'Id' AS TYPE INTEGER
-        public int Id { get; set; }
-
-        public static bool operator ==(Employee employee1, Employee employee2)
-        {
-            if (employee1.Id == employee2.Id)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-        }
-        public static bool operator !=(Employee employee1, Employee employee2)
-        {
-            return false;
-        }
-
-        //IMPLEMENT 'Person' CLASS 'employeeInfo()' METHOD
-        public override void employeeInfo(int Id, string FirstName, out string Info, string LastName)
-        {
-            Info = "EMPLOYEE: " + FirstName.ToUpper() + " " + LastName.ToUpper() +
-            "\n\n\tID: " + Id;
-        }
+        //ADD PROPERTY CALLED 'things' AS GENERIC DATA TYPE LIST
+        public List<T> Things { get; set; }
     }
 }
-
