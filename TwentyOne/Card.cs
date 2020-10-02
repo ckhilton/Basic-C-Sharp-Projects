@@ -8,7 +8,7 @@ namespace TwentyOne
 {
     public class Card //PUBLIC SIMPLY MEANS THAT IT'S AVAILABLE TO THE ENTIRE PROGRAM
     {
-        //EXAMPLE OF CREATING A CONSTRUCTOR FOR A DEFAULT VALUE
+        //EXAMPLE OF CREATING A CONSTRUCTOR-FUNCTION FOR A DEFAULT VALUE
         //public Card()
         //{
         //    Suit = "Spades";

@@ -11,13 +11,37 @@ namespace TwentyOne
         static void Main(string[] args)
         {
             Console.WriteLine("\n\tPLEASE ENTER THE CURRENT DAY OF THE WEEK: \n\n\t");
+            string input = "Wednesday"; /*Console.ReadLine();*/
 
-            string weekday = Console.ReadLine();
-
-            Date.DaysOfTheWeek weekday = new Date.DaysOfTheWeek();
+            Date date = new Date();
 
 
-            weekday = Enum.Parse(DaysOfTheWeek);
+            
+            
+            //int today = Convert.ToInt32(date.Day);
+            //for (int i = 0; i < 7; i++)
+            //{
+            //    if (i == today)
+            //    {
+            //        Console.WriteLine("TODAY IS " + today);
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("PLEASE ENTER AN ACTUAL DAY OF THE WEEK");
+            //    }
+            //}
+
+            Console.ReadLine();
+
+
+            
+            //int input = Enum.Parse(today.Day);
+
+            
+            //Day weekday = Enum.TryParse(today);
+
+
+
 
 
 
@@ -36,7 +60,7 @@ namespace TwentyOne
             //}
             //Console.WriteLine("\n\tTOTAL COUNT OF CARDS CREATED: " + deck.Cards.Count);
             //Console.ReadLine();
-        }       
+        }
     }
 }
 
