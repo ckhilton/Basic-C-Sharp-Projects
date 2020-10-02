@@ -13,25 +13,36 @@ namespace TwentyOne
         {            
             Cards = new List<Card>(); //INSTANTIATE PROPERTY OF 'Cards' AS AN EMPTY LIST OF CARDS (ALWAYS HAVE TO CREATE A NEW LIST)
 
-            //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
-            List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
-
-            //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
-            List<string> Faces = new List<string>() { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
-
-            //FOR EVERY 'face' IN 'Faces' AND FOR EVERY 'suit' IN 'SUITS' WE...
-            foreach (string face in Faces)
+            for (int i = 0; i < 13; i++ ) //THIS FOR-LOOP REPEATS 13 TIMES
             {
-                //CREATE A NEW CARD DURING EACH LOOP THAT ASSIGNS THE 'Suit' VALUE THE PROPERTY OF 'suit' AND THE 'face' VALUE TO THE PROPERTY OF 'face'
-                //NESTED LOOP
-                foreach (string suit in Suits)
+                for (int j = 0; j < 4; j++ ) // THIS NESTED FOR-LOOP THAT WILL GO THROUGH EACH OF THE 13 FACES 4 TIMES (ONCE FOR EACH OF THE DIFFERENT 4 SUITS) FOR A TOTAL OF 52 TIMES, AND ADDING EACH REPETITION OF THE LOOP AS A CARD TO CREATE THE DECK.
                 {
-                    Card card = new Card();
-                    card.Suit = suit;
-                    card.Face = face;
-                    Cards.Add(card);
+                    Card card = new Card(); //INSTANTIATES A NEW BLANK 'Card' EACH TIME AROUND THE LOOP (52 TIMES AROUND)
+                    card.Face = (Face)i; //TO CAST TO A DATA TYPE, PUT THE DATA TYPE YOUR CASTING TO, INSIDE OF THE PARENTHESES. J IS AN INTEGER IN THIS CASE (CASTING TO AN INTEGER).
+                    card.Suit = (Suit)j; //CASTING TO DATA TYPE 'Suit' WHICH IS A BASE DATA TYPE OF THE INTEGER VALUE OF 'i' IN THIS CASE
+                    Cards.Add(card); //ADDS THE CARD EACH TIME AROUND TO THE DECK
                 }
             }
+
+            ////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
+            //List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
+
+            ////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
+            //List<string> Faces = new List<string>() { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
+
+            ////FOR EVERY 'face' IN 'Faces' AND FOR EVERY 'suit' IN 'SUITS' WE...
+            //foreach (string face in Faces)
+            //{
+            //    //CREATE A NEW CARD DURING EACH LOOP THAT ASSIGNS THE 'Suit' VALUE THE PROPERTY OF 'suit' AND THE 'face' VALUE TO THE PROPERTY OF 'face'
+            //    //NESTED LOOP
+            //    foreach (string suit in Suits)
+            //    {
+            //        Card card = new Card();
+            //        card.Suit = suit;
+            //        card.Face = face;
+            //        Cards.Add(card);
+            //    }
+            //}
         }
         public List<Card> Cards { get; set; }
 
