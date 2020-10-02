@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    public class Card //PUBLIC SIMPLY MEANS THAT IT'S AVAILABLE TO THE ENTIRE PROGRAM
+    public struct /*class */ Card   //PUBLIC SIMPLY MEANS THAT IT'S AVAILABLE TO THE ENTIRE PROGRAM
+                                    //WE CHANGED 'Card' FROM A 'class' TO A 'struct' BECAUSE A CARD
+                                    //IS A SMALL VALUE AND ONCE YOU SET IT'S VALUE YOU DON'T REALLY WANT IT CHANGING IN A WEIRD WAY LIKE THE WAY A REFERNCE TYPE CAN BE CHANGED.
     {
         //EXAMPLE OF CREATING A CONSTRUCTOR FOR A DEFAULT VALUE
         //public Card()
