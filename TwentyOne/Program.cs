@@ -37,6 +37,7 @@ namespace TwentyOne
                     if (input.ToUpper() == "FRIDAY")
                     {
                         // DISPLAY THE FOLLOWING
+                        Console.Beep(); //JUST FOUND THIS, NOW I'M GONNA BE ANNOYING, SORRY! ;)
                         Console.WriteLine("\n\tFRIDAY!!! ************ T.G.I.F. ************ FRIDAY!!!");
                     }
                     // 2) IF THE INPUT IS VALID BUT NOT THE CORRECT DAY OF THE WEEK
