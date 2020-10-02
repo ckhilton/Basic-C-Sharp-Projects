@@ -28,11 +28,11 @@ namespace TwentyOne
         {
             if (employee1.Id != employee2.Id)
             {
-                return false;
+                return true; 
             }
             else
             {
-                return true;
+                return false;
             }
             
         }

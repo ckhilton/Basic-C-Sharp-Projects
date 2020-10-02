@@ -24,7 +24,7 @@ namespace TwentyOne
                 {
                    
                     //USER INSTRUCTIONS 
-                    Console.WriteLine("\n\tWELCOME, YOU ARE NOW ATTEMPTING TO ENTER ONLINE THE EMPLOYEE PORTAL. " +
+                    Console.WriteLine("\n\tWELCOME, YOU ARE NOW ATTEMPTING TO ENTER THE ONLINE EMPLOYEE PORTAL. " +
                         "\n\n============================================ START ============================================" +
                         "\n\n\tPLEASE FILL OUT THE FOLLOWING:");
                     //GET USER INPUT FOR FIRST NAME 
@@ -64,12 +64,12 @@ namespace TwentyOne
                     //CONDITION TO BE CHECKED BASED UPON EMPLOYEE ID 
                     if (employee1 != employee2)
                     {
-                        Console.WriteLine("\n\tYOUR EMPLOYEE ID HAS BEEN VALIDATED!\n");
-                    }
-                    else
-                    {
                         Console.WriteLine("\n\tEMPLOYEE ID: " + Id2 + " DID NOT MATCH!" +
                             "\n\n\tPLEASE CHECK YOUR EMPLOYEE ID CAREFULLY AND TRY AGAIN\n");
+                    }
+                    else
+                    {         
+                        Console.WriteLine("\n\tYOUR EMPLOYEE ID HAS BEEN VALIDATED!\n");
                     }
                 }
 
