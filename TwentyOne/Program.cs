@@ -25,9 +25,6 @@ namespace TwentyOne
                     myAccount.Amount = 0.00F;
                     //DISPLAY OUTPUT
                     Console.WriteLine("\n\tMY CURRENT BANK ACCOUNT BALANCE: " + String.Format("{0:C}", myAccount.Amount));
-
-                    //USER INSTRUCTIONS
-                    Console.WriteLine("\n\n\tNOW ENTER YOUR")
                 }
 
                 // EXCEPTION HANDLING

@@ -10,4 +10,5 @@ namespace TwentyOne
     {
         public float Amount { get; set; }
     }
+
 }
