@@ -23,27 +23,8 @@ namespace TwentyOne
                     Cards.Add(card); //ADDS THE CARD EACH TIME AROUND TO THE DECK
                 }
             }
-
-            ////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
-            //List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
-
-            ////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
-            //List<string> Faces = new List<string>() { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
-
-            ////FOR EVERY 'face' IN 'Faces' AND FOR EVERY 'suit' IN 'SUITS' WE...
-            //foreach (string face in Faces)
-            //{
-            //    //CREATE A NEW CARD DURING EACH LOOP THAT ASSIGNS THE 'Suit' VALUE THE PROPERTY OF 'suit' AND THE 'face' VALUE TO THE PROPERTY OF 'face'
-            //    //NESTED LOOP
-            //    foreach (string suit in Suits)
-            //    {
-            //        Card card = new Card();
-            //        card.Suit = suit;
-            //        card.Face = face;
-            //        Cards.Add(card);
-            //    }
-            //}
         }
+
         public List<Card> Cards { get; set; }
 
         //SHUFFLE THE DECK
@@ -65,3 +46,31 @@ namespace TwentyOne
         }
     }
 }
+
+
+
+
+//====================================================================== OLD CODE SNIPPETS ======================================================================
+
+////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
+//List<string> Suits = new List<string>() { "Clubs", "Hearts", "Diamonds", "Spades" };
+
+////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
+//List<string> Faces = new List<string>() { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King", "Ace" };
+
+////FOR EVERY 'face' IN 'Faces' AND FOR EVERY 'suit' IN 'SUITS' WE...
+//foreach (string face in Faces)
+//{
+//    //CREATE A NEW CARD DURING EACH LOOP THAT ASSIGNS THE 'Suit' VALUE THE PROPERTY OF 'suit' AND THE 'face' VALUE TO THE PROPERTY OF 'face'
+//    //NESTED LOOP
+//    foreach (string suit in Suits)
+//    {
+//        Card card = new Card();
+//        card.Suit = suit;
+//        card.Face = face;
+//        Cards.Add(card);
+//    }
+//}
+
+
+//===============================================================================================================================================================
