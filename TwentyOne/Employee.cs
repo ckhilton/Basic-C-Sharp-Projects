@@ -16,6 +16,12 @@ namespace TwentyOne
             this.lastName = lastName;
         }
 
+        //THIS METHOD OVERRIDES object.ToString()'s DEFAULT BEHAVIOR OF RETURNING THE TYPE TO MY OWN CUSTOM VERSION OF "ToString()" 
+        public override string ToString()
+        {
+            return ID + ": " + firstName + " " + lastName;
+        }
+
         public int ID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
