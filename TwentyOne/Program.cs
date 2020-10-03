@@ -12,7 +12,14 @@ namespace TwentyOne
         {
             Deck deck = new Deck();
 
-            ////HOW TO CHECK HOW MANY OF A CERTAIN CARD EXISTS IN THE DECK (TEDIOUS TO WRITE AND NOT AS EASY TO READ)
+
+            //LAMBDA EXPRESSIONS ARE:
+            //HARD TO DEBUG
+            //CAN'T STEP THROUGH LAMBDA EXPRESSIONS UPON EACH LOOP OF THE CODE
+            //TOO MUCH LOGIC IN ONE LONG LAMBDA EXPRESSION CAN GET VERY COMPLICATED TO READ/UNDERSTAND
+
+            ////======================================== SNIPPET ========================================
+            ////HOW TO CHECK HOW MANY OF A CERTAIN CARD EXISTS IN THE DECK (TEDIOUS TO WRITE AND NOT AS EASY TO READ, ALSO NOT AS FAST WHEN IT RUNS)
             //int counter = 0;
             //foreach (Card card in deck.Cards)
             //{
@@ -22,10 +29,37 @@ namespace TwentyOne
             //    }
             //}
             //Console.WriteLine(counter);
+            ////====================================== END SNIPPET ======================================
 
-            //HOW TO WRITE THE ABOVE CODE USING A LAMBDA FUNCTION INSTEAD
-            int count = deck.Cards.Count(x => x.Face == Face.Ace); //THE LAMBDA SIGN '=>' CAN BE READ ALOUD SAYING "WHERE" OR "EVALUATE AND DO THE FOLLOWING THINGS TO EACH ITEM TO THE LEFT SIDE"
-            Console.WriteLine(count);
+
+            ////======================================== SNIPPET ========================================
+            ////HOW TO WRITE THE ABOVE CODE USING A LAMBDA FUNCTION INSTEAD
+            //int count = deck.Cards.Count(x => x.Face == Face.Ace); //THE LAMBDA SIGN '=>' CAN BE READ ALOUD SAYING "WHERE" OR "EVALUATE AND DO THE FOLLOWING THINGS TO EACH ITEM TO THE LEFT SIDE"
+            //Console.WriteLine(count);
+
+            ////USING A LAMBDA FUNCTION ON A LIST OF CUSTOM OBJECTS
+            //List<Card> newList = deck.Cards.Where(x => x.Face == Face.King).ToList(); //TAKE THE NEW LIST OF CARDS AND FIND OUT WHERE THE FACE IS EQUAL TO KING AND MAP THEM TO A NEW LIST (SHOULD SHOW JUST KINGS IN THE LIST)
+
+            //foreach (Card card in newList)
+            //{
+            //    Console.WriteLine(card.Face);
+            //}
+            ////====================================== END SNIPPET ======================================
+
+
+            //======================================== SNIPPET ========================================
+            //USING A LAMBDA ON A LIST OF INTEGERS
+            List<int> numberList = new List<int>() { 1, 2, 3, 535, 342, 23 };
+            //------------ A FEW DIFFERENT LAMBDA FUNCTION EXAMPLES ON TYPE 'List<int>'
+            //int sum = numberList.Sum();
+            //int sum = numberList.Sum(x => x + 5); //ADDS MORE SPECIFICS TO WHAT TO DO WHEN ADDING
+            //int sum = numberList.Max(); //GETS THE MAXIMUM VALUE IN THE LIST OF INTEGERS
+            //int sum = numberList.Min(); //GETS THE MINIMUM VALUE IN THE LIST OF INTEGERS
+            int sum = numberList.Where(x => x > 20).Sum(); //THIS CHAINS TWO LAMBDA FUNCTIONS TOGETER (BASICALLY CONCATENATES THEM). 'Where()' CREATES A NEW LIST
+
+            Console.WriteLine(sum);
+            //====================================== END SNIPPET ======================================
+
 
             //deck.Cards.
 

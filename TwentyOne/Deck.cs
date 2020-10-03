@@ -27,7 +27,7 @@ namespace TwentyOne
 
         public List<Card> Cards { get; set; }
 
-        //SHUFFLE THE DECK
+        //SHUFFLE THE DECK FUNCTION/METHOD
         public void Shuffle(int times = 1)
         {
             for (int i = 0; i < times; i++)
