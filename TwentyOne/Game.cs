@@ -11,7 +11,7 @@ namespace TwentyOne
     {
         public List<Player> Players { get; set; }
         public string Name { get; set; }
-        public string Dealer { get; set; }
+        public Dictionary<Player, int> Bets { get; set; }
 
         public abstract void Play(); //ABSTRACT METHODS CAN ONLY EXIST IN AN ABSTRACT CLASS; AN ABSTRACT METHOD ALSO CONTAINS NO IMPLEMENTATION. (I.E. ANY CLASS INHERITING THIS CLASS MUST IMPLEMENT THIS METHOD.
         

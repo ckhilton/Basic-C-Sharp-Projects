@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TwentyOne
 {
-    class Dealer
+    public class Dealer
     {
         public string Name { get; set; }
         public Deck Deck { get; set; } //A DEALER IS NOT A TYPE OF DECK, BUT RATHER 'has a' DECK. IN OTHER WORDS, IF IT'S AN 'is a' RELATIONSHIP (i.e. A 'Dealer' "is a" 'Deck'), THEN INHERIT THE CLASS. IF IT 'has a' RELATIONSHIP (i.e. A 'Dealer' "has a" 'Deck'), THEN INCLUDE IT AS A CLASS PROPERTY
