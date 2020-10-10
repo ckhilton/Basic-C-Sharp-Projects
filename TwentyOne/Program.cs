@@ -11,22 +11,34 @@ namespace TwentyOne
         static void Main(string[] args) 
         {
             Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
-            string playerName = Console.ReadLine();
+            string playerName = Console.ReadLine().ToUpper();
             Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
             int bank = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OS 21 RIGHT NOW?", playerName);
-            string answer = Console.ReadLine().ToLower();
-            if (answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya")
+            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
+            string answer = Console.ReadLine().ToUpper();
+            if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
             {
                 Player player = new Player(name: playerName, beginningBalance: bank);
                 Game game = new TwentyOneGame(); //USES POLYMORPHISM
                 game += player;
-                player.isActivelyPlaying = true;
-                while (player.isActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
+                player.IsActivelyPlaying = true;
+                while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
                 {
                     game.Play();
+                    if (player.Balance <= 0)
+                    {
+                        //player.IsBroke();
+                        if (player.IsBroke() == false)
+                        {
+                            player.IsActivelyPlaying = true;
+                        }
+                        else 
+                        { 
+                            player.IsActivelyPlaying = false; 
+                        }
+                    }
+                    player.IsActivelyPlaying = true;
                 }
-                game -= player;
                 Console.WriteLine("THANK YOU FOR PLAYING 21!");
             }
             Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");

@@ -9,19 +9,21 @@ namespace TwentyOne
     //AN ABSTRACT CLASS CAN NEVER BE TURNED INTO AN OBJECT; IT IS ONLY MEANT TO BE INHERITED BY OTHER CLASSES
     public abstract class Game //*NOTE: MAKE INHERITED CLASSES AS GENERIC AS POSSIBLE FUTURE INHERITING CLASSES
     {
-        public List<Player> Players { get; set; }
-        public string Name { get; set; }
-        public Dictionary<Player, int> Bets { get; set; }
+        private List<Player> _players = new List<Player>();
+        private Dictionary<Player, int> _bets = new Dictionary<Player, int>();
 
-        public abstract void Play(); //ABSTRACT METHODS CAN ONLY EXIST IN AN ABSTRACT CLASS; AN ABSTRACT METHOD ALSO CONTAINS NO IMPLEMENTATION. (I.E. ANY CLASS INHERITING THIS CLASS MUST IMPLEMENT THIS METHOD.
+        public List<Player> Players { get { return _players; } set { _players = value; } } //THIS IS THE OLD WAY TO DO '{ get; set; }'.... '{ get { return _players; } set { _players = value; } }'
+        public string Name { get; set; }
+        public Dictionary<Player, int> Bets { get { return _bets; } set { _bets = value; } }
+
+        public abstract void Play(); //ABSTRACT METHODS CAN ONLY EXIST IN AN ABSTRACT CLASS; AN ABSTRACT METHOD ALSO CONTAINS NO IMPLEMENTATION. (I.E. ANY CLASS INHERITING THIS 'Game' CLASS MUST IMPLEMENT THIS METHOD.
         
         public virtual void ListPlayers() //A VIRTUAL METHOD ONLY EXISTS INSIDE AN ABSTRACT CLASS; IT MEANS THAT THIS METHOD GETS INHERITED BY AN INHERITING CLASS BUT IT HAS THE ABILITY TO OVERRIDE IT (I.E.VIRTUAL METHODS HAVE IMPLEMENTATION BUT THEY CAN BE OVERWRITTEN).
         {
             foreach (Player player in Players)
             {
-                Console.WriteLine(player);
-            }
-     
+                Console.WriteLine(player.Name);
+            }   
         }
     }
 }

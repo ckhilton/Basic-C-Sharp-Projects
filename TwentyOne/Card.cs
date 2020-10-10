@@ -19,27 +19,27 @@ namespace TwentyOne
 
     public enum Suit
     {
-        Clubs,
-        Diamonds,
-        Hearts,
-        Spades
+        CLUBS,
+        DIAMONDS,
+        HEARTS,
+        SPADES
     }
 
     public enum Face
     {
-        Two,
-        Three,
-        Four,
-        Five,
-        Six,
-        Seven,
-        Eight,
-        Nine,
-        Ten,
-        Jack,
-        Queen,
-        King,
-        Ace
+        TWO,
+        THREE,
+        FOUR,
+        FIVE,
+        SIX,
+        SEVEN,
+        EIGHT,
+        NINE,
+        TEN,
+        JACK,
+        QUEEN,
+        KING,
+        ACE
     }
 }
 

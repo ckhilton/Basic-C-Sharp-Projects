@@ -10,28 +10,28 @@ namespace TwentyOne
     {
         private static Dictionary<Face, int> _cardValues = new Dictionary<Face, int>() //STATIC HERE BECAUSE WE DON'T WANT TO HAVE TO CREATE AN OBJECT TO ACCESS THIS (THEY ARE HELPER METHODS TO PERFORM SOME LOGIC WITHIN THE GAME)
         {
-            [Face.Two] = 2,
-            [Face.Three] = 3,
-            [Face.Four] = 4,
-            [Face.Five] = 5,
-            [Face.Six] = 6,
-            [Face.Seven] = 7,
-            [Face.Eight] = 8,
-            [Face.Nine] = 9,
-            [Face.Ten] = 10,
-            [Face.Jack] = 10,
-            [Face.Queen] = 10,
-            [Face.King] = 10,
-            [Face.Ace] = 1
+            [Face.TWO] = 2,
+            [Face.THREE] = 3,
+            [Face.FOUR] = 4,
+            [Face.FIVE] = 5,
+            [Face.SIX] = 6,
+            [Face.SEVEN] = 7,
+            [Face.EIGHT] = 8,
+            [Face.NINE] = 9,
+            [Face.TEN] = 10,
+            [Face.JACK] = 10,
+            [Face.QUEEN] = 10,
+            [Face.KING] = 10,
+            [Face.ACE] = 1
         };
 
         private static int[] GetAllPossibleHandValues(List<Card> Hand)
         {
-            int aceCount = Hand.Count(x => x.Face == Face.Ace);
+            int aceCount = Hand.Count(x => x.Face == Face.ACE);
             int[] result = new int[aceCount + 1]; //WHENEVER YOU CREATE AN ARRAY YOU HAVE TO STATE HOW BIG IT'S GOING TO BE OR HOW MANY POSSIBLE RESULTS THERE ARE
             int value = Hand.Sum(x => _cardValues[x.Face]);
             result[0] = value;
-            if (result.Length == 1) return result;
+            if (result.Length == 1)
             {
                 return result;
             }
@@ -82,7 +82,6 @@ namespace TwentyOne
             if (playerScore > dealerScore) return true;
             else if (playerScore < dealerScore) return false;
             else return null;
-
         }
     }
 }

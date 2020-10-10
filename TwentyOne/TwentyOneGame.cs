@@ -18,11 +18,11 @@ namespace TwentyOne
             {
                 player.Hand = new List<Card>();
                 player.Stay = false;
-                
             }
             Dealer.Hand = new List<Card>();
             Dealer.Stay = false;
             Dealer.Deck = new Deck();
+            Dealer.Deck.Shuffle();
             Console.WriteLine("PLACE YOUR BET!");
 
             foreach (Player player in Players)
@@ -35,21 +35,23 @@ namespace TwentyOne
                 }
                 Bets[player] = bet;
             }
+
             for (int i = 0; i < 2; i++)
             {
                 Console.WriteLine("DEALING...");
                 foreach (Player player in Players)
                 {
-                    Console.Write("{0}: ", player.Name); //THE NEXT THING AFTER THIS DOESN'T GO ONTO A NEW LINE.
+                    Console.Write("{0}: ", player.Name); //THE NEXT THING AFTER 'Console.Write()' DOESN'T GO ONTO A NEW LINE.
                     Dealer.Deal(player.Hand);
                     if (i == 1)
                     {
                         bool blackJack = TwentyOneRules.CheckForBlackJack(player.Hand);
                         if (blackJack)
                         {
-                            Console.WriteLine("BLACKJACK! {0} WINS {1}", player.Name, Bets[player]);
-                            player.Balance += Convert.ToInt32((Bets[player] * 1.5) + Bets[player]);                         
-                            return; //ONCE PLAYER GETS BLACKJACK, THAT ROUND IS OVER
+                            Console.WriteLine("BLACKJACK! {0} WINS {1}\n", player.Name, Bets[player]);
+                            player.Balance += Convert.ToInt32((Bets[player] * 1.5) + Bets[player]);
+                            Console.WriteLine("YOUR BALANCE IS NOW: {0}", String.Format("{0:C}", player.Balance));
+                            break;
                         }
                     }
                 }
@@ -68,6 +70,7 @@ namespace TwentyOne
                     }
                 }
             }
+
             foreach (Player player in Players)
             {
                 while(!player.Stay)
@@ -78,48 +81,54 @@ namespace TwentyOne
                         Console.Write("{0} ", card.ToString());
                     }
                     Console.WriteLine("\n\nHIT OR STAY?");
-                    string answer = Console.ReadLine().ToLower();
-                    if (answer == "stay")
+                    string answer = Console.ReadLine().ToUpper();
+                    if (answer == "STAY" || answer == "S")
                     {
                         player.Stay = true;
                         break; //IF PLAYER DECIDES TO STAY, THE WHILE LOOP STOPS
                     }
-                    else if (answer == "hit")
+                    else if (answer == "HIT" || answer == "H")
                     {
                         Dealer.Deal(player.Hand);
                     }
                     bool busted = TwentyOneRules.IsBusted(player.Hand);
                     if (busted)
                     {
-                        Dealer.Balance += Bets[player];
-                        Console.WriteLine("{0} BUSTED! YOU LOSE YOUR BET OF {1}. YOUR BALANCE IS NOW {2}.", player.Name, Bets[player], player.Balance);
-                        Console.WriteLine("DO YOU WANT TO PLAY AGAIN?");
-                        answer = Console.ReadLine().ToLower();
-                        if (answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya" || answer == "yea" || answer == "yep" )
+                        Dealer.Balance += Bets[player];                     
+                        Console.WriteLine("SORRY {0}, YOU BUSTED! YOU LOST {1}. YOU HAVE {2} LEFT.", player.Name, string.Format("{0:C}", Bets[player]), string.Format("{0:C}", player.Balance));
+                        if (player.Balance > 0)
                         {
-                            player.isActivelyPlaying = true;
+                            Console.WriteLine("PLAY AGAIN?");
+                            string again = Console.ReadLine().ToUpper();
+                            if (again == "YES" || again == "YEAH" || again == "Y" || again == "YA" || again == "YEA" || again == "YEP" || again == "YUP")
+                            {
+                                player.IsActivelyPlaying = true;
+                                return;
+                            }
+                            else
+                            {
+                                player.IsActivelyPlaying = false;
+                                return;
+                            }
                         }
-                        else
-                        {
-                            player.isActivelyPlaying = false;
-                        }
+                        return;
                     }
                 }
             }
-            Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
+            Dealer.IsBusted = TwentyOneRules.IsBusted(Dealer.Hand);
             Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
-            while (!Dealer.Stay && !Dealer.isBusted)
+            while (!Dealer.Stay && !Dealer.IsBusted)
             {
                 Console.WriteLine("DEALER IS HITTING...");
                 Dealer.Deal(Dealer.Hand);
-                Dealer.isBusted = TwentyOneRules.IsBusted(Dealer.Hand);
+                Dealer.IsBusted = TwentyOneRules.IsBusted(Dealer.Hand);
                 Dealer.Stay = TwentyOneRules.ShouldDealerStay(Dealer.Hand);
             }
             if (Dealer.Stay)
             {
                 Console.WriteLine("DEALER IS STAYING.");
             }
-            if (Dealer.isBusted)
+            if (Dealer.IsBusted)
             {
                 Console.WriteLine("DEALER BUSTED!");
                 foreach(KeyValuePair<Player, int> entry in Bets)
@@ -153,14 +162,16 @@ namespace TwentyOne
                 string answer = Console.ReadLine().ToLower();
                 if (answer == "yes" || answer == "yeah" || answer == "y" || answer == "ya" || answer == "yea" || answer == "yep")
                 {
-                    player.isActivelyPlaying = true;
+                    player.IsActivelyPlaying = true;
+                    return;
                 }
                 else
                 {
-                    player.isActivelyPlaying = false;
+                    player.IsActivelyPlaying = false;
+                    return;
                 }
             }
-            
+           
         }
         //======================== END 'Play()' METHOD =========================
 
