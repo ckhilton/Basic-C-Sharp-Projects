@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TwentyOne
 {
@@ -10,6 +11,18 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
+            ////WRITING TEXT TO FILE
+            //string text = "here is some text.";
+            //File.WriteAllText(@"C:\Users\Student\Desktop\log.txt", text); //THE '@' ALLOWS US TO USE JUST A SINGLE SLASH BECAUSE THE SLASH IS AN ESCAPE CHARACTER
+
+            ////READING TEXT FROM A FILE
+            //String text = File.ReadAllText(@"C:\Users\Student\Desktop\log.txt");
+            //Console.WriteLine(text);
+
+            //APPENDING TEXT: WE USE A STREAM
+
+
+
             Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
             string playerName = Console.ReadLine().ToUpper();
             Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
