@@ -3,17 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TwentyOne
 {
     class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
             Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
             string playerName = Console.ReadLine().ToUpper();
-            Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+            Console.WriteLine("HELLO {0}! HOW MUCH MONEY DID YOU BRING TODAY?", playerName);
             int bank = Convert.ToInt32(Console.ReadLine());
+            //APPEND FILE WITH AMOUNT OF MONEY EACH USER SAYS THEY BROUGHT TODAY
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Basic_C#_Programs - Copy\TwentyOne\TwentyOne\MoneyLog.txt", true))
+            {
+                file.WriteLine(bank);
+            }
+            
+            Console.Write("PLEASE CONFIRM THAT YOU BROUGH ")
+
+
+                string bank = string.Format(System.Stream.ReadAllText(@"C:\Users\Student\Desktop\Basic_C#_Programs - Copy\TwentyOne\TwentyOne\Log.txt", true))
+            int bank = Convert.ToInt32(Console.ReadLine());
+            
+            
+            
             Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
             string answer = Console.ReadLine().ToUpper();
             if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
