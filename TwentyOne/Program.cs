@@ -25,9 +25,9 @@ namespace TwentyOne
 
             Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
             string playerName = Console.ReadLine().ToUpper();
-            Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+            Console.WriteLine("HELLO {0}! AND HOW MUCH MONEY DID YOU BRING TODAY?", playerName);          
             int bank = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
+            Console.WriteLine("WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?");
             string answer = Console.ReadLine().ToUpper();
             if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
             {
