@@ -10,6 +10,16 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
+            DateTime yearOfBirth = new DateTime(1995, 5, 23, 8, 32, 45); //NON NULLABLE STRUCT
+            DateTime yearOfGraduation = new DateTime(2103, 6, 1, 16, 34, 22);
+
+            TimeSpan ageAtGraduation = yearOfGraduation - yearOfBirth;
+
+            Console.WriteLine(ageAtGraduation);
+
+
+
+
             Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
             string playerName = Console.ReadLine().ToUpper();
             Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
