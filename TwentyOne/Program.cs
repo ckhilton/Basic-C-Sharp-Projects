@@ -22,7 +22,8 @@ namespace TwentyOne
             DateTime future = now.AddHours(answer);
 
             //PRINTS THE EXACT TIME IT WILL BE IN X HOURS, WHERE X IS THE NUMBER THE USER ENTERED
-            Console.Write("\nIN {0} HOURS, THE EXACT DATE AND TIME WILL BE: {1}", answer, future);
+            Console.Write("\nIN {0} HOURS, THE EXACT DATE AND TIME WILL BE: " +
+                "\n\n\t\t{1}", answer, future);
 
             Console.ReadLine();
         }
