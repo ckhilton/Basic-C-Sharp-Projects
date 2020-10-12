@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TwentyOne
 {
@@ -15,8 +16,14 @@ namespace TwentyOne
         public void Deal(List<Card> Hand)
         {
             Hand.Add(Deck.Cards.First());
-            Console.WriteLine(Deck.Cards.First().ToString() + "\n");
-            Deck.Cards.RemoveAt(0);
+            string card = string.Format(Deck.Cards.First().ToString() + "\n");
+            Console.WriteLine(card);
+            //LOGGING TO A FILE: APPENDS THE FILE "log.txt" AND ADDS ANY CARDS DELT EVERY TIME THE DEALER DEALS
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Student\desktop\log.txt", true)) //'true' TELLS THE PROGRAM TO APPEND THE TEXT TO THE END OF A FILE. IF IT SAID FALSE, IT WOULD CREATE A NEW FILE
+            {
+                file.WriteLine(card);
+            }
+                Deck.Cards.RemoveAt(0);
         }
     }
 }

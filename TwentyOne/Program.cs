@@ -24,7 +24,7 @@ namespace TwentyOne
                 player.IsActivelyPlaying = true;
                 while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
                 {
-                    game.Play();
+                    
                     if (player.Balance <= 0)
                     {
                         if (player.IsBroke() == false)
@@ -36,8 +36,9 @@ namespace TwentyOne
                             player.IsActivelyPlaying = false; 
                         }
                     }
-                    player.IsActivelyPlaying = true;
+                    game.Play();
                 }
+                //game -= player;
                 Console.WriteLine("THANK YOU FOR PLAYING 21!");
             }
             Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
