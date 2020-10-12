@@ -8,68 +8,23 @@ namespace TwentyOne
 {
     class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
-            DateTime yearOfBirth = new DateTime(1995, 5, 23, 8, 32, 45); //NON NULLABLE STRUCT
-            DateTime yearOfGraduation = new DateTime(2103, 6, 1, 16, 34, 22);
+            //PRINTS THE CURRENT DATE AND TIME TO THE CONSOLE
+            DateTime now = DateTime.Now;
+            Console.WriteLine("CURRENT DATE AND TIME: {0}", now);
 
-            TimeSpan ageAtGraduation = yearOfGraduation - yearOfBirth;
+            //ASKS USER FOR ANY NUMBER AND STORES AS A VALUE DATA TYPE DOUBLE NAMED 'answer'
+            Console.Write("\nPLEASE TYPE IN ANY NUMBER: ");
+            double answer = Convert.ToDouble(Console.ReadLine());
 
-            Console.WriteLine(ageAtGraduation);
+            //CREATE NEW DATETIME CALLED 'future' AND USE THE METHOD 'AddHours' TO THE  VALUE OF 'now'
+            DateTime future = now.AddHours(answer);
 
+            //PRINTS THE EXACT TIME IT WILL BE IN X HOURS, WHERE X IS THE NUMBER THE USER ENTERED
+            Console.Write("\nIN {0} HOURS, THE EXACT DATE AND TIME WILL BE: {1}", answer, future);
 
-
-
-            Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
-            string playerName = Console.ReadLine().ToUpper();
-            Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
-            int bank = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
-            string answer = Console.ReadLine().ToUpper();
-            if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
-            {
-                Player player = new Player(name: playerName, beginningBalance: bank);
-                Game game = new TwentyOneGame(); //USES POLYMORPHISM
-                game += player;
-                player.IsActivelyPlaying = true;
-                while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
-                {
-                    
-                    if (player.Balance <= 0)
-                    {
-                        if (player.IsBroke() == false)
-                        {
-                            player.IsActivelyPlaying = true;
-                        }
-                        else 
-                        { 
-                            player.IsActivelyPlaying = false; 
-                        }
-                    }
-                    game.Play();
-                }
-                //game -= player;
-                Console.WriteLine("THANK YOU FOR PLAYING 21!");
-            }
-            Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
-            Console.Read();
+            Console.ReadLine();
         }
     }
 }
-
-//Game game = new TwentyOneGame();
-//game.Players = new List<Player>();
-//Player player = new Player();
-//player.Name = "Kirk";
-//game = game + player;
-//game = game - player;
-
-//Deck deck = new Deck();
-//deck.Shuffle(3);
-
-//foreach (Card card in deck.Cards)
-//{
-//    Console.WriteLine(card.Face.ToUpper() + " OF " + card.Suit.ToUpper());
-//}
-//Console.WriteLine("\n\tTOTAL COUNT OF CARDS CREATED: " + deck.Cards.Count);
-//Console.ReadLine();
