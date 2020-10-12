@@ -54,21 +54,23 @@ namespace TwentyOne
                             break;
                         }
                     }
-                }
-                Console.Write("DEALER: ");
-                Dealer.Deal(Dealer.Hand);
-                if (i == 1)
-                {
-                    bool blackJack = TwentyOneRules.CheckForBlackJack(Dealer.Hand);
-                    if (blackJack)
+                    Console.Write("DEALER: ");
+                    Dealer.Deal(Dealer.Hand);
+                    if (i == 1)
                     {
-                        Console.WriteLine("DEALER HAS BLACKJACK! EVERYONE LOSES!");
-                        foreach (KeyValuePair<Player, int> entry in Bets)
+                        bool blackJack = TwentyOneRules.CheckForBlackJack(Dealer.Hand);
+                        if (blackJack)
                         {
-                            Dealer.Balance += entry.Value;
+                            Console.WriteLine("DEALER HAS BLACKJACK! EVERYONE LOSES!" +
+                                "YOUR BALANCE IS NOW: {0}", string.Format("{0:C}", player.Balance));
+                            foreach (KeyValuePair<Player, int> entry in Bets)
+                            {
+                                Dealer.Balance += entry.Value;
+                            }                            
+                            break;
                         }
                     }
-                }
+                }              
             }
 
             foreach (Player player in Players)

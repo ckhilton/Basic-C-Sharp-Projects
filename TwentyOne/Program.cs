@@ -27,7 +27,6 @@ namespace TwentyOne
                     game.Play();
                     if (player.Balance <= 0)
                     {
-                        //player.IsBroke();
                         if (player.IsBroke() == false)
                         {
                             player.IsActivelyPlaying = true;
