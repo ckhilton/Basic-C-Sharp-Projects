@@ -21,6 +21,7 @@ namespace TwentyOne
             //LOGGING TO A FILE: APPENDS THE FILE "log.txt" AND ADDS ANY CARDS DELT EVERY TIME THE DEALER DEALS
             using (StreamWriter file = new StreamWriter(@"C:\Users\Student\desktop\log.txt", true)) //'true' TELLS THE PROGRAM TO APPEND THE TEXT TO THE END OF A FILE. IF IT SAID FALSE, IT WOULD CREATE A NEW FILE
             {
+                file.WriteLine(DateTime.Now);
                 file.WriteLine(card);
             }
                 Deck.Cards.RemoveAt(0);
