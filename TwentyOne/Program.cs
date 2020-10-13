@@ -13,35 +13,44 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
-            
-        
-
-
             //CONSTANT KEYWORD VARIABLE EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
             const string company = "HILTON CONSULTING CORPORATION";
-            Console.WriteLine("WELCOME TO {0}", string.Format(company));
+            Console.WriteLine("WELCOME TO THE {0} EMPLOYEE PORTAL." +
+                "\n\nSINCE THIS IS YOUR FIRST TIME, PLEASE CHOOSE A UNIQUE NUMBER FOR YOUR EMPLOYEE ACCESS ID...", company);
 
             //STORE USER INPUT IN VARIABLES USING 'var' KEYWORD
-            Console.Write("ENTER YOUR EMPLOYEE ID: ");
+            Console.Write("ENTER YOUR UNIQUE {0} EMPLOYEE ACCESS ID HERE: ", company);
             var id = Convert.ToInt32(Console.ReadLine());
 
-            //CHAIN TWO CONSTRUCTORS TOGETHER
+            //USE CHAINED CONSTRUCTORS
             var employee = new Employee(id);
 
             Console.Write("ENTER YOUR FIRST NAME: ");
-            employee.First = Console.ReadLine();
+            employee.First = Console.ReadLine().ToUpper();
 
             Console.Write("ENTER YOUR LAST NAME: ");
-            employee.Last = Console.ReadLine();
+            employee.Last = Console.ReadLine().ToUpper();
 
-            Console.WriteLine("PLEASE CONFIRM YOUR EMPLOYEE INFO BELOW:" +
-                "\n\n\t{0}", employee.);
+            Console.Write("ENTER YOUR DOB: ");
+            employee.DOB = Console.ReadLine().ToUpper();
 
+            Console.Write("IS EVERY FIELD ABOVE FILLED OUT? (Y/N)");
+            string answer = Console.ReadLine().ToUpper();
 
+            StreamWriter file = new StreamWriter(@"C:\);
+            {
+                Console.
+            }
 
+            bool display = (answer == "Y");
+            if (display)
+            {
+                employee.Valid = true;
+                employee.Display();           
+            }
+            else return;
 
-
-            Console.Read();
+            Console.ReadKey(true);
         }
     }
 }
