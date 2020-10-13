@@ -28,13 +28,17 @@ namespace TwentyOne
             string answer = Console.ReadLine().ToUpper();
             if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
             {
+                //INSTANTIATE PLAYER OBJECT 'player' AND REQUIRE TWO PARAMETERS
                 Player player = new Player(name: playerName, beginningBalance: bank);
+
+                //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Player' PROPERTY OF 'ID'
                 player.ID = Guid.NewGuid();
+                
+                //LOG THE USERS NAME 
                 using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true))
                 {
                     file.WriteLine(player.ID);
-
-                }
+                }               
 
                 Game game = new TwentyOneGame(); //USES POLYMORPHISM
                 game += player;
