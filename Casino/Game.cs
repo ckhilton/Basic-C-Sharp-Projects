@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino
 {
     //AN ABSTRACT CLASS CAN NEVER BE TURNED INTO AN OBJECT; IT IS ONLY MEANT TO BE INHERITED BY OTHER CLASSES
     public abstract class Game //*NOTE: MAKE INHERITED CLASSES AS GENERIC AS POSSIBLE FUTURE INHERITING CLASSES

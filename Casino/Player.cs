@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino
 {
     public class Player //*NOTE THAT CONSTRUCTORS GO AT THE VERY TOP OF THE CLASS
     {
