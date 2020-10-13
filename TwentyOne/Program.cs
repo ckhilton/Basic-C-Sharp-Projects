@@ -28,12 +28,10 @@ namespace TwentyOne
             string answer = Console.ReadLine().ToUpper();
             if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
             {
-                Player player = new Player(name: playerName, beginningBalance: bank);
-                player.ID = Guid.NewGuid();
-                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true))
+                Player player = new Player(name: playerName, beginningBalance: bank) { ID = Guid.NewGuid() };
+                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLo.txt", true))
                 {
                     file.WriteLine(player.ID);
-
                 }
 
                 Game game = new TwentyOneGame(); //USES POLYMORPHISM
