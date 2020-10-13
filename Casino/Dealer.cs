@@ -19,7 +19,7 @@ namespace Casino
             string card = string.Format(Deck.Cards.First().ToString() + "\n");
             Console.WriteLine(card);
             //LOGGING TO A FILE: APPENDS THE FILE "log.txt" AND ADDS ANY CARDS DELT EVERY TIME THE DEALER DEALS
-            using (StreamWriter file = new StreamWriter(@"C:\Users\Student\desktop\log.txt", true)) //'true' TELLS THE PROGRAM TO APPEND THE TEXT TO THE END OF A FILE. IF IT SAID FALSE, IT WOULD CREATE A NEW FILE
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true)) //'true' TELLS THE PROGRAM TO APPEND THE TEXT TO THE END OF A FILE. IF IT SAID FALSE, IT WOULD CREATE A NEW FILE
             {
                 file.WriteLine(DateTime.Now);
                 file.WriteLine(card);
@@ -28,3 +28,5 @@ namespace Casino
         }
     }
 }
+
+//GUID = GLOBAL UNIQUE IDENTIFIER

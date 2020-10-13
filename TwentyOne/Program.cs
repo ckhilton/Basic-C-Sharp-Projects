@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Casino;
 using Casino.TwentyOne;
+using System.IO;
 
 namespace TwentyOne
 {
@@ -12,7 +13,14 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
-            Console.WriteLine("WELCOME TO THE GRAND HOTEL AND CASINO. LET'S START BY TELLING ME YOUR NAME.");
+            
+            //CONSTANT KEYWORD EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
+            const string casinoName = "GRAND HOTEL AND CASINO";
+
+            //GLOBAL UNIQUE IDENTIFIER EXAMPLE
+            Guid identifier = Guid.NewGuid();
+
+            Console.WriteLine("WELCOME TO THE {0}. LET'S START BY TELLING ME YOUR NAME.", string.Format(casinoName));
             string playerName = Console.ReadLine().ToUpper();
             Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
             int bank = Convert.ToInt32(Console.ReadLine());
@@ -21,6 +29,13 @@ namespace TwentyOne
             if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
             {
                 Player player = new Player(name: playerName, beginningBalance: bank);
+                player.ID = Guid.NewGuid();
+                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true))
+                {
+                    file.WriteLine(player.ID);
+
+                }
+
                 Game game = new TwentyOneGame(); //USES POLYMORPHISM
                 game += player;
                 player.IsActivelyPlaying = true;
@@ -48,6 +63,19 @@ namespace TwentyOne
         }
     }
 }
+
+//ADDITIONAL FEATURES OF C# VIDEO PART1
+//CONSTRUCTOR CALL LINES
+
+////Player newPlayer = new Player("Kirk"); //FROM CONSTRUCTOR CALL CHAIN (I.E. "CHAINING) USED IN THE 'Player' CLASS
+////SHORTENED VERSION OF THE SAME CODE USED BELOW WITH THE 'var' DATA TYPE
+//var newPlayer = new Player("Kirk");
+
+//Dictionary<string, string> newDictionary = new Dictionary<string, string>();
+////                      OR
+//var newDictionary = new Dictionary<string, string>();
+
+
 
 //Game game = new TwentyOneGame();
 //game.Players = new List<Player>();

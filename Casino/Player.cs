@@ -8,6 +8,11 @@ namespace Casino
 {
     public class Player //*NOTE THAT CONSTRUCTORS GO AT THE VERY TOP OF THE CLASS
     {
+        //CONSTRUCTOR CALL LINE
+        public Player(string name) : this(name, 100)
+        {
+        }
+
         //CONSTRUCTOR
         public Player(string name, int beginningBalance)    //
         {                                                   //
@@ -23,6 +28,7 @@ namespace Casino
         public string Name { get; set; }
         public bool IsActivelyPlaying { get; set; }
         public bool Stay { get; set; }
+        public Guid ID { get; set; }
         public bool Broke { get; set; }
 
         public bool Bet(int amount) //TRY AND KEEP THE PLAYER LOGIC IN THE PLAYER CLASS. I.E. PLAYERS MAKE BETS
