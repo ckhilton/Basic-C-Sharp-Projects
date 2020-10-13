@@ -14,49 +14,33 @@ namespace TwentyOne
         static void Main(string[] args) 
         {
             
-            //CONSTANT KEYWORD EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
-            const string casinoName = "GRAND HOTEL AND CASINO";
+        
 
-            //GLOBAL UNIQUE IDENTIFIER EXAMPLE
-            Guid identifier = Guid.NewGuid();
 
-            Console.WriteLine("WELCOME TO THE {0}. LET'S START BY TELLING ME YOUR NAME.", string.Format(casinoName));
-            string playerName = Console.ReadLine().ToUpper();
-            Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
-            int bank = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
-            string answer = Console.ReadLine().ToUpper();
-            if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
-            {
-                Player player = new Player(name: playerName, beginningBalance: bank) { ID = Guid.NewGuid() };
-                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLo.txt", true))
-                {
-                    file.WriteLine(player.ID);
-                }
+            //CONSTANT KEYWORD VARIABLE EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
+            const string company = "HILTON CONSULTING CORPORATION";
+            Console.WriteLine("WELCOME TO {0}", string.Format(company));
 
-                Game game = new TwentyOneGame(); //USES POLYMORPHISM
-                game += player;
-                player.IsActivelyPlaying = true;
-                while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
-                {
-                    
-                    if (player.Balance <= 0)
-                    {
-                        if (player.IsBroke() == false)
-                        {
-                            player.IsActivelyPlaying = true;
-                        }
-                        else 
-                        { 
-                            player.IsActivelyPlaying = false; 
-                        }
-                    }
-                    game.Play();
-                }
-                //game -= player;
-                Console.WriteLine("THANK YOU FOR PLAYING 21!");
-            }
-            Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
+            //STORE USER INPUT IN VARIABLES USING 'var' KEYWORD
+            Console.Write("ENTER YOUR EMPLOYEE ID: ");
+            var id = Convert.ToInt32(Console.ReadLine());
+
+            //CHAIN TWO CONSTRUCTORS TOGETHER
+            var employee = new Employee(id);
+
+            Console.Write("ENTER YOUR FIRST NAME: ");
+            employee.First = Console.ReadLine();
+
+            Console.Write("ENTER YOUR LAST NAME: ");
+            employee.Last = Console.ReadLine();
+
+            Console.WriteLine("PLEASE CONFIRM YOUR EMPLOYEE INFO BELOW:" +
+                "\n\n\t{0}", employee.);
+
+
+
+
+
             Console.Read();
         }
     }
@@ -91,3 +75,46 @@ namespace TwentyOne
 //}
 //Console.WriteLine("\n\tTOTAL COUNT OF CARDS CREATED: " + deck.Cards.Count);
 //Console.ReadLine();
+
+
+
+//GLOBAL UNIQUE IDENTIFIER EXAMPLE
+//Guid identifier = Guid.NewGuid();
+
+//Console.WriteLine("WELCOME TO THE {0}. LET'S START BY TELLING ME YOUR NAME.", string.Format(casinoName));
+//            string playerName = Console.ReadLine().ToUpper();
+//Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+//            int bank = Convert.ToInt32(Console.ReadLine());
+//Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
+//            string answer = Console.ReadLine().ToUpper();
+//            if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
+//            {
+//                Player player = new Player(name: playerName, beginningBalance: bank) { ID = Guid.NewGuid() };
+//                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLo.txt", true))
+//                {
+//                    file.WriteLine(player.ID);
+//                }
+
+//                Game game = new TwentyOneGame(); //USES POLYMORPHISM
+//game += player;
+//                player.IsActivelyPlaying = true;
+//                while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
+//                {
+                    
+//                    if (player.Balance <= 0)
+//                    {
+//                        if (player.IsBroke() == false)
+//                        {
+//                            player.IsActivelyPlaying = true;
+//                        }
+//                        else 
+//                        { 
+//                            player.IsActivelyPlaying = false; 
+//                        }
+//                    }
+//                    game.Play();
+//                }
+//                //game -= player;
+//                Console.WriteLine("THANK YOU FOR PLAYING 21!");
+//            }
+//            Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
