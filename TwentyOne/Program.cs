@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Casino1;
+using Casino1.TwentyOne;
 
 namespace TwentyOne
 {
@@ -24,19 +26,19 @@ namespace TwentyOne
                 player.IsActivelyPlaying = true;
                 while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
                 {
-                    
+                    game.Play();
                     if (player.Balance <= 0)
                     {
+                        player.IsBroke();
                         if (player.IsBroke() == false)
                         {
                             player.IsActivelyPlaying = true;
                         }
-                        else 
+                        else if (player.IsBroke() == true)
                         { 
                             player.IsActivelyPlaying = false; 
                         }
-                    }
-                    game.Play();
+                    }                            
                 }
                 //game -= player;
                 Console.WriteLine("THANK YOU FOR PLAYING 21!");

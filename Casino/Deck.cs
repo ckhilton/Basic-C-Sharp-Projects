@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino1
 {
     public class Deck
     {
@@ -13,11 +13,11 @@ namespace TwentyOne
         {            
             Cards = new List<Card>(); //INSTANTIATE PROPERTY OF 'Cards' AS AN EMPTY LIST OF CARDS (ALWAYS HAVE TO CREATE A NEW LIST)
 
-            //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
-            List<string> Suits = new List<string>() { "CLUBS", "HEARTS", "DIAMONDS", "SPADES" };
+            ////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Suits'
+            //List<string> Suits = new List<string>() { "CLUBS", "HEARTS", "DIAMONDS", "SPADES" };
 
-            //INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
-            List<string> Faces = new List<string>() { "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING", "ACE" };
+            ////INSTANTIATE NEW LIST WITH DEFAULT VALUES FOR 'Faces'
+            //List<string> Faces = new List<string>() { "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "JACK", "QUEEN", "KING", "ACE" };
 
 
             for (int i = 0; i < 13; i++) //THIS FOR-LOOP REPEATS 13 TIMES

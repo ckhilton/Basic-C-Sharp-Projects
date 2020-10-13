@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Casino1.Interfaces;
 
-namespace TwentyOne
+namespace Casino1.TwentyOne
 {
     //CREATE PUBLIC CLASS 'TwentyOneGame' THAT INHERITS THE SUPERCLASS 'Game' 
     public class TwentyOneGame : Game, IWalkAway
@@ -48,12 +49,14 @@ namespace TwentyOne
                         bool blackJack = TwentyOneRules.CheckForBlackJack(player.Hand);
                         if (blackJack)
                         {
-                            Console.WriteLine("BLACKJACK! {0} WINS {1}\n", player.Name, Bets[player]);
+                            Console.WriteLine("BLACKJACK! {0} WINS {1}!\n", player.Name, String.Format("{0:C}", Bets[player] * 1.5));
                             player.Balance += Convert.ToInt32((Bets[player] * 1.5) + Bets[player]);
-                            Console.WriteLine("YOUR BALANCE IS NOW: {0}", String.Format("{0:C}", player.Balance));
-                            break;
+                            Console.WriteLine("YOUR BALANCE IS NOW: {0}\n", String.Format("{0:C}", player.Balance));
+                            return;
                         }
+                        return;
                     }
+
                     Console.Write("DEALER: ");
                     Dealer.Deal(Dealer.Hand);
                     if (i == 1)
@@ -70,6 +73,7 @@ namespace TwentyOne
                             break;
                         }
                     }
+                    break;
                 }              
             }
 
@@ -98,6 +102,22 @@ namespace TwentyOne
                     {
                         Dealer.Balance += Bets[player];                     
                         Console.WriteLine("SORRY {0}, YOU BUSTED! YOU LOST {1}. YOU HAVE {2} LEFT.", player.Name, string.Format("{0:C}", Bets[player]), string.Format("{0:C}", player.Balance));
+                        if (player.Balance <= 0)
+                        {
+                            player.IsActivelyPlaying = false;
+                            return;
+                            //if (player.IsBroke() == false)
+                            //{
+                            //    player.IsActivelyPlaying = true;
+                            //    return;
+                            //}
+                            //else
+                            //{
+                            //    player.IsActivelyPlaying = false;
+                            //    return;
+                            //}
+                        }
+
                         if (player.Balance > 0)
                         {
                             Console.WriteLine("PLAY AGAIN?");
@@ -113,7 +133,7 @@ namespace TwentyOne
                                 return;
                             }
                         }
-                        return;
+                        break;
                     }
                 }
             }

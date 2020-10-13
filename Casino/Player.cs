@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TwentyOne
+namespace Casino1
 {
     public class Player //*NOTE THAT CONSTRUCTORS GO AT THE VERY TOP OF THE CLASS
     {
@@ -39,8 +39,9 @@ namespace TwentyOne
             }
         }
 
+        //CODE THAT RUNS IF THE PLAYER'S BALANCE REACHES ZERO
         public bool IsBroke()
-        {         
+        {
             Console.WriteLine("YOUR BALANCE IS {0}. YOU ARE BROKE!" +
             "\nWOULD YOU LIKE TO GO GET MORE MONEY FROM OUR ATM?", String.Format("{0:C}", Balance));
             string getMoney = Console.ReadLine().ToUpper();
@@ -48,7 +49,7 @@ namespace TwentyOne
             {
                 Console.WriteLine("HOW MUCH MONEY DID YOU GO GET?");
                 int bank = Convert.ToInt32(Console.ReadLine());
-                Balance = bank;              
+                Balance = bank;
                 Console.WriteLine("YOUR BALANCE IS NOW: {0}" +
                     "\nWOULD YOU LIKE TO PLAY 21 AGAIN?", String.Format("{0:C}", Balance));
                 string playAnswer = Console.ReadLine().ToUpper();
@@ -56,8 +57,12 @@ namespace TwentyOne
                 {
                     return false;
                 }
+                else
+                {
+                    return true;
+                }
             }
-            return true;
+            return false;
         }
 
         public static Game operator +(Game game, Player player)
