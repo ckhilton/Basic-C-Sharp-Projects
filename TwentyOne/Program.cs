@@ -22,8 +22,23 @@ namespace TwentyOne
 
             Console.WriteLine("WELCOME TO THE {0}. LET'S START BY TELLING ME YOUR NAME.", string.Format(casinoName));
             string playerName = Console.ReadLine().ToUpper();
-            Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
-            int bank = Convert.ToInt32(Console.ReadLine());
+
+            bool validAnswer = false;
+            int bank = 0;
+            while (!validAnswer)
+            {
+                Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+                validAnswer = int.TryParse(Console.ReadLine(), out bank);
+                if (!validAnswer) Console.WriteLine("PLEASE ENTER DIGITS ONLY, NO DECIMALS.");
+            }
+
+
+            //Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+            //int bank = Convert.ToInt32(Console.ReadLine());
+
+
+
+
             Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
             string answer = Console.ReadLine().ToUpper();
             if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
@@ -57,9 +72,26 @@ namespace TwentyOne
                             player.IsActivelyPlaying = false; 
                         }
                     }
-                    game.Play();
+                    //BEGIN TRY-CATCH BLOCK FOR EXCEPTION HANDLING
+                    try
+                    {
+                        game.Play();
+                    }
+                    catch (FraudException)
+                    {
+                        Console.WriteLine("CALL SECURITY!!! CHEATER ON THE FLOOR!!!");
+                        Console.ReadLine();
+                        return;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("AN ERROR HAS OCCURRED. PLEASE CONTACT YOUR SYSTEM ADMINISTRATOR.");
+                        Console.ReadLine();
+                        return;
+                    }
+                    //END TRY-CATCH BLOCK
                 }
-                //game -= player;
+                game -= player;
                 Console.WriteLine("THANK YOU FOR PLAYING 21!");
             }
             Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
