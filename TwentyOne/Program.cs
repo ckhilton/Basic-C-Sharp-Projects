@@ -13,7 +13,16 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
-            
+
+
+            Console.WriteLine("HELLO, WHAT'S YOUR AGE?");
+            string name = Console.ReadLine().ToUpper();
+
+            DateTime now = new DateTime();
+            now.Date(now);
+
+
+
             //CONSTANT KEYWORD EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
             const string casinoName = "GRAND HOTEL AND CASINO";
 
