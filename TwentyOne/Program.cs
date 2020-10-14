@@ -11,103 +11,128 @@ namespace TwentyOne
 {
     class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
 
 
-            Console.WriteLine("HELLO, WHAT'S YOUR AGE?");
-            string name = Console.ReadLine().ToUpper();
+            Console.WriteLine("HELLO, HOW OLD ARE YOU?");
+            var answer = Convert.ToDateTime(Console.ReadLine());
 
-            DateTime now = new DateTime();
-            now.Date(now);
+            DateTime now = DateTime.Now;
+            
+            TimeSpan born = now - answer;
 
+            Console.WriteLine("YOU WERE BORN IN THE YEAR {0}.", born);
 
-
-            //CONSTANT KEYWORD EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
-            const string casinoName = "GRAND HOTEL AND CASINO";
-
-            //GLOBAL UNIQUE IDENTIFIER EXAMPLE
-            Guid identifier = Guid.NewGuid();
-
-            Console.WriteLine("WELCOME TO THE {0}. LET'S START BY TELLING ME YOUR NAME.", string.Format(casinoName));
-            string playerName = Console.ReadLine().ToUpper();
-
-            bool validAnswer = false;
-            int bank = 0;
-            while (!validAnswer)
-            {
-                Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
-                validAnswer = int.TryParse(Console.ReadLine(), out bank);
-                if (!validAnswer) Console.WriteLine("PLEASE ENTER DIGITS ONLY, NO DECIMALS.");
-            }
-
-
-            //Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
-            //int bank = Convert.ToInt32(Console.ReadLine());
-
-
-
-
-            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
-            string answer = Console.ReadLine().ToUpper();
-            if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
-            {
-                //INSTANTIATE PLAYER OBJECT 'player' AND REQUIRE TWO PARAMETERS
-                Player player = new Player(name: playerName, beginningBalance: bank);
-
-                //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Player' PROPERTY OF 'ID'
-                player.ID = Guid.NewGuid();
-                
-                //LOG THE USERS NAME 
-                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true)) //'true' APPENDS THE LIST, RATHER THAN OVERWRITING IT EACH TIME.
-                {
-                    file.WriteLine(player.ID);
-                }               
-
-                Game game = new TwentyOneGame(); //USES POLYMORPHISM
-                game += player;
-                player.IsActivelyPlaying = true;
-                while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
-                {
-                    
-                    if (player.Balance <= 0)
-                    {
-                        if (player.IsBroke() == false)
-                        {
-                            player.IsActivelyPlaying = true;
-                        }
-                        else 
-                        { 
-                            player.IsActivelyPlaying = false; 
-                        }
-                    }
-                    //BEGIN TRY-CATCH BLOCK FOR EXCEPTION HANDLING
-                    try
-                    {
-                        game.Play();
-                    }
-                    catch (FraudException)
-                    {
-                        Console.WriteLine("CALL SECURITY!!! CHEATER ON THE FLOOR!!!");
-                        Console.ReadLine();
-                        return;
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("AN ERROR HAS OCCURRED. PLEASE CONTACT YOUR SYSTEM ADMINISTRATOR.");
-                        Console.ReadLine();
-                        return;
-                    }
-                    //END TRY-CATCH BLOCK
-                }
-                game -= player;
-                Console.WriteLine("THANK YOU FOR PLAYING 21!");
-            }
-            Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
             Console.Read();
+      
         }
     }
 }
+                //    //PRINTS THE CURRENT DATE AND TIME TO THE CONSOLE
+                //    DateTime now = DateTime.Now;
+                //    Console.WriteLine("CURRENT DATE AND TIME: {0}", now);
+
+//    //ASKS USER FOR ANY NUMBER AND STORES AS A VALUE DATA TYPE DOUBLE NAMED 'answer'
+//    Console.Write("\nPLEASE TYPE IN ANY NUMBER: ");
+//    double answer = Convert.ToDouble(Console.ReadLine());
+
+//    //CREATE NEW DATETIME CALLED 'future' AND USE THE METHOD 'AddHours' TO THE  VALUE OF 'now'
+//    DateTime future = now.AddHours(answer);
+
+//    //PRINTS THE EXACT TIME IT WILL BE IN X HOURS, WHERE X IS THE NUMBER THE USER ENTERED
+//    Console.Write("\nIN {0} HOURS, THE EXACT DATE AND TIME WILL BE: " +
+//        "\n\n\t\t{1}", answer, future);
+
+//    Console.ReadLine();
+//}
+
+
+//            //CONSTANT KEYWORD EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
+//            const string casinoName = "GRAND HOTEL AND CASINO";
+
+//            //GLOBAL UNIQUE IDENTIFIER EXAMPLE
+//            Guid identifier = Guid.NewGuid();
+
+//            Console.WriteLine("WELCOME TO THE {0}. LET'S START BY TELLING ME YOUR NAME.", string.Format(casinoName));
+//            string playerName = Console.ReadLine().ToUpper();
+
+//            bool validAnswer = false;
+//            int bank = 0;
+//            while (!validAnswer)
+//            {
+//                Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+//                validAnswer = int.TryParse(Console.ReadLine(), out bank);
+//                if (!validAnswer) Console.WriteLine("PLEASE ENTER DIGITS ONLY, NO DECIMALS.");
+//            }
+
+
+//            //Console.WriteLine("AND HOW MUCH MONEY DID YOU BRING TODAY?");
+//            //int bank = Convert.ToInt32(Console.ReadLine());
+
+
+
+
+//            Console.WriteLine("HELLO, {0}. WOULD YOU LIKE TO JOIN A GAME OF 21 RIGHT NOW?", playerName);
+//            string answer = Console.ReadLine().ToUpper();
+//            if (answer == "YES" || answer == "YEAH" || answer == "Y" || answer == "YA" || answer == "YEA" || answer == "YEP" || answer == "YUP")
+//            {
+//                //INSTANTIATE PLAYER OBJECT 'player' AND REQUIRE TWO PARAMETERS
+//                Player player = new Player(name: playerName, beginningBalance: bank);
+
+//                //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Player' PROPERTY OF 'ID'
+//                player.ID = Guid.NewGuid();
+
+//                //LOG THE USERS NAME 
+//                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true)) //'true' APPENDS THE LIST, RATHER THAN OVERWRITING IT EACH TIME.
+//                {
+//                    file.WriteLine(player.ID);
+//                }               
+
+//                Game game = new TwentyOneGame(); //USES POLYMORPHISM
+//                game += player;
+//                player.IsActivelyPlaying = true;
+//                while (player.IsActivelyPlaying && player.Balance > 0) //DOES PLAYER WANT TO KEEP PLAYING AND DO THEY HAVE ENOUGH MONEY TO PLAY
+//                {
+
+//                    if (player.Balance <= 0)
+//                    {
+//                        if (player.IsBroke() == false)
+//                        {
+//                            player.IsActivelyPlaying = true;
+//                        }
+//                        else 
+//                        { 
+//                            player.IsActivelyPlaying = false; 
+//                        }
+//                    }
+//                    //BEGIN TRY-CATCH BLOCK FOR EXCEPTION HANDLING
+//                    try
+//                    {
+//                        game.Play();
+//                    }
+//                    catch (FraudException)
+//                    {
+//                        Console.WriteLine("CALL SECURITY!!! CHEATER ON THE FLOOR!!!");
+//                        Console.ReadLine();
+//                        return;
+//                    }
+//                    catch (Exception)
+//                    {
+//                        Console.WriteLine("AN ERROR HAS OCCURRED. PLEASE CONTACT YOUR SYSTEM ADMINISTRATOR.");
+//                        Console.ReadLine();
+//                        return;
+//                    }
+//                    //END TRY-CATCH BLOCK
+//                }
+//                game -= player;
+//                Console.WriteLine("THANK YOU FOR PLAYING 21!");
+//            }
+//            Console.WriteLine("FEEL FREE TO LOOK AROUND THE CASINO. BYE FOR NOW.");
+//            Console.Read();
+//        }
+//    }
+//}
 
 //ADDITIONAL FEATURES OF C# VIDEO PART1
 //CONSTRUCTOR CALL LINES
