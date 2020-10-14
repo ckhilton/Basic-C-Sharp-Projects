@@ -39,7 +39,7 @@ namespace Casino.TwentyOne
                 //END EXCEPTION HANDLING
                 if (bet < 0)
                 {
-                    throw new FraudException();
+                    throw new FraudException("CALL SECURITY!!! CHEATER ON THE FLOOR!!!");
 
                 }
                 bool successfullyBet = player.Bet(bet);
