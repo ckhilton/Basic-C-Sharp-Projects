@@ -51,12 +51,11 @@ namespace TwentyOne
                 if (display)
                 {
                     //CALL 'Verify' METHOD
-                    employee.Verify();             
+                    employee.Verify();
                     //INSTANTIATE NEW OBJECT OF CLASS 'StreamWriter'
-                    StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\EmployeeLog.txt", true); //'true' ALLOWS 'file' TO BE APPENDED INSTEAD OF OVERWRITTEN
-                    //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Employee' PROPERTY OF 'empID'
-                    string empID = Convert.ToString(employee.EmpID);
-                    file.WriteLine(empID);
+                    using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\EmployeeLog.txt", true)) ; //'true' ALLOWS 'file' TO BE APPENDED INSTEAD OF OVERWRITTEN
+                    //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Employee' PROPERTY OF 'EmpID'
+                    file.WriteLine(EmpID);
                     //LOG ALL VALUES IN THE LIST PROPERTY 'Full' THAT ARE IN THE 'Employee' CLASS OBJECT 'employee' AND 
                     foreach (string value in all)
                     {                        
