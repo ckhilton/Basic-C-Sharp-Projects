@@ -27,6 +27,7 @@ namespace TwentyOne
 
                     Console.Write("ENTER THE MONTH YOU WERE BORN IN (AS A NUMBER): ");
                     int month = Convert.ToInt32(Console.ReadLine());
+                    //RANGE FOR MONTH TO BE VALID
                     if (month < 1 || month > 12)
                     {
                         throw new FormatException();
@@ -34,6 +35,7 @@ namespace TwentyOne
 
                     Console.Write("ENTER THE DAY OF THE MONTH YOU WERE BORN ON (AS A NUMBER): ");
                     int day = Convert.ToInt32(Console.ReadLine());
+                    //RANGE FOR DAY TO BE VALID
                     if (day < 0 || day > 31)
                     {
                         throw new FormatException();
@@ -55,7 +57,7 @@ namespace TwentyOne
                         Console.WriteLine("SINCE YOU TURN {0} ON {1}, YOU WERE BORN IN THE YEAR {2}\n", turning, bday, yearBorn);
                     }
                 }
-
+                //EXCEPTION HANDLING
                 catch (FormatException ex)
                 {
                     Console.WriteLine(ex.Message.ToUpper() + " PLEASE ENTER POSITIVE NUMBERS ONLY; CANNOT BE ZERO");
