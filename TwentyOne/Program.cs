@@ -20,7 +20,7 @@ namespace TwentyOne
                     DateTime now = DateTime.Now;
                     Console.Write("ENTER HOW MANY YEARS OLD YOU ARE: ");
                     int age = Convert.ToInt32(Console.ReadLine());
-                    if (age < 0)
+                    if (age < 1)
                     {
                         throw new FormatException();
                     }
@@ -36,7 +36,7 @@ namespace TwentyOne
                     Console.Write("ENTER THE DAY OF THE MONTH YOU WERE BORN ON (AS A NUMBER): ");
                     int day = Convert.ToInt32(Console.ReadLine());
                     //RANGE FOR DAY TO BE VALID
-                    if (day < 0 || day > 31)
+                    if (day < 1 || day > 31)
                     {
                         throw new FormatException();
                     }
@@ -49,12 +49,14 @@ namespace TwentyOne
                     {
                         int yearBorn = year - age;
                         Console.WriteLine("SINCE YOU TURNED {0} ON {1}, YOU WERE BORN IN THE YEAR {2}\n", age, bday, yearBorn);
+                        run = false;
                     }
                     if (bday > DateTime.Now)
                     {
                         int turning = age + 1;
                         int yearBorn = year - age - 1;
                         Console.WriteLine("SINCE YOU TURN {0} ON {1}, YOU WERE BORN IN THE YEAR {2}\n", turning, bday, yearBorn);
+                        run = false;
                     }
                 }
                 //EXCEPTION HANDLING
