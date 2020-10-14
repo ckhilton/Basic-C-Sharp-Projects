@@ -35,7 +35,7 @@ namespace TwentyOne
                 player.ID = Guid.NewGuid();
                 
                 //LOG THE USERS NAME 
-                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true))
+                using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\TwentyOne_GameLog.txt", true)) //'true' APPENDS THE LIST, RATHER THAN OVERWRITING IT EACH TIME.
                 {
                     file.WriteLine(player.ID);
                 }               
