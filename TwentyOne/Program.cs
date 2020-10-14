@@ -14,18 +14,42 @@ namespace TwentyOne
         static void Main(string[] args)
         {
 
+            try
+            {
+                Console.Write("ENTER HOW MANY YEARS OLD YOU ARE: ");
+                int age = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("HELLO, HOW OLD ARE YOU?");
-            var answer = Convert.ToDateTime(Console.ReadLine());
+                Console.Write("ENTER THE MONTH OF THE YEAR YOU WERE BORN IN (AS A NUMBER): ");
+                int month = Convert.ToInt32(Console.ReadLine());
 
-            DateTime now = DateTime.Now;
-            
-            TimeSpan born = now - answer;
+                Console.Write("ENTER THE DAY OF THE MONTH YOU WERE BORN ON (AS A NUMBER): ");
+                int day = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("YOU WERE BORN IN THE YEAR {0}.", born);
+                int year = 2020;
 
+                DateTime bday = new DateTime(year, month, day);
+                if (bday < DateTime.Now)
+                {
+                    int yearBorn = year - age;
+                    Console.WriteLine("SINCE YOU TURNED {0} ON {1}, YOU WERE BORN IN THE YEAR {2}", age, bday, yearBorn);
+                }
+                if (bday > DateTime.Now)
+                {
+                    int yearBorn = year - age - 1;
+                    Console.WriteLine("SINCE YOU TURN {0} ON {1}, YOU WERE BORN IN THE YEAR {2}", age, bday, yearBorn);
+                }
+            }
+            catch (Exception ex)
+            {
+                (int age <= 0 || 0 <= month > 12 || 0 <= int day >= 31)
+                      
+            }
+                
             Console.Read();
-      
+        }
+            
+
+                 
         }
     }
 }
