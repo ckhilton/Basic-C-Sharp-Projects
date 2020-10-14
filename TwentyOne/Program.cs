@@ -37,7 +37,9 @@ namespace TwentyOne
 
                 //USE CHAINED 'Employee' CONSTRUCTORS THAT DISPLAY A DEFAULT A MESSAGE ABOUT THE EMPLOYEES DEPARTMENT NAME
                 var employee = new Employee(id, first, last, dob) {Full = new List<string>()};
-                
+                //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Employee' PROPERTY OF 'empID'
+                employee.empID = Guid.NewGuid();
+
                 Console.Write("\nIF EVERYTHING IS CORRECT, TYPE \"Y\"" +
                     "\nIF YOU WANT TO CHANGE ANYTHING, TYPE \"N\": ");
                 string answer = Console.ReadLine().ToUpper();
