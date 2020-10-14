@@ -13,44 +13,54 @@ namespace TwentyOne
     {
         static void Main(string[] args) 
         {
+            bool run = true;
+            
             //CONSTANT KEYWORD VARIABLE EXAMPLE (THE NAME WILL NEVER CHANGE THROUGHOUT THE PROGRAM)
             const string company = "HILTON CONSULTING CORPORATION";
             Console.WriteLine("WELCOME TO THE {0} EMPLOYEE PORTAL." +
-                "\n\nSINCE THIS IS YOUR FIRST TIME, PLEASE CHOOSE A UNIQUE NUMBER FOR YOUR EMPLOYEE ACCESS ID...", company);
-
-            //STORE USER INPUT IN VARIABLES USING 'var' KEYWORD
-            Console.Write("ENTER YOUR UNIQUE {0} EMPLOYEE ACCESS ID HERE: ", company);
-            var id = Convert.ToInt32(Console.ReadLine());
-
-            //USE CHAINED CONSTRUCTORS
-            var employee = new Employee(id);
-
-            Console.Write("ENTER YOUR FIRST NAME: ");
-            employee.First = Console.ReadLine().ToUpper();
-
-            Console.Write("ENTER YOUR LAST NAME: ");
-            employee.Last = Console.ReadLine().ToUpper();
-
-            Console.Write("ENTER YOUR DOB: ");
-            employee.DOB = Console.ReadLine().ToUpper();
-
-            Console.Write("IS EVERY FIELD ABOVE FILLED OUT? (Y/N)");
-            string answer = Console.ReadLine().ToUpper();
-
-            StreamWriter file = new StreamWriter(@"C:\);
+                "\n\nTHIS IS YOUR FIRST TIME ACCESSING THE SYSTEM, LET'S GET YOU SET UP!" +
+                "\n\nPLEASE ENTER THE FOLLOWING INFORMATION:", company);
+            do
             {
-                Console.
-            }
+                //STORE USER INFO/INPUT IN VARIABLES USING 'var' KEYWORD
+                Console.Write("\nA UNIQUE 4-DIGIT EMPLOYEE ACCESS ID HERE (DON'T FORGET): ");
+                var id = Convert.ToInt32(Console.ReadLine());
 
-            bool display = (answer == "Y");
-            if (display)
-            {
-                employee.Valid = true;
-                employee.Display();           
-            }
-            else return;
+                Console.Write("FIRST NAME: ");
+                var first = Console.ReadLine().ToUpper();
 
-            Console.ReadKey(true);
+                Console.Write("LAST NAME: ");
+                var last = Console.ReadLine().ToUpper();
+
+                Console.Write("YOUR DOB: ");
+                var dob = Console.ReadLine().ToUpper();
+
+                //USE CHAINED 'Employee' CONSTRUCTORS THAT DISPLAY A DEFAULT A MESSAGE ABOUT THE EMPLOYEES DEPARTMENT NAME
+                var employee = new Employee(id, first, last, dob) {Full = new List<string>()};
+                
+                Console.Write("\nIF EVERYTHING IS CORRECT, TYPE \"Y\"" +
+                    "\nIF YOU WANT TO CHANGE ANYTHING, TYPE \"N\": ");
+                string answer = Console.ReadLine().ToUpper();
+
+                //CONTROL CONDITIONS FOR VERIFYING INFO
+                bool display = (answer == "Y");
+                if (display)
+                {
+                    employee.Validate = true;
+                    employee.Verify();
+                    foreach (string value in employee.Full)
+                    {
+                        StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Basic_C#_Programs - Copy\TwentyOne\TwentyOne\EmployeeLog.txt");
+                        {
+                            file.WriteLine(value.ToString());
+                        }
+                    }
+                    run = false;
+                }
+                
+            }
+            //DO-WHILE LOOP RUNS IF USER ANSWERS 'N' AND NEEDS TO CHANGE INFO 
+            while (run);
         }
     }
 }
