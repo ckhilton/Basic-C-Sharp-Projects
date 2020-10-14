@@ -23,8 +23,8 @@ namespace TwentyOne
             do
             {
                 //STORE USER INFO/INPUT IN VARIABLES USING 'var' KEYWORD
-                Console.Write("\nA UNIQUE 4-DIGIT EMPLOYEE ACCESS ID HERE (DON'T FORGET): ");
-                var id = Convert.ToInt32(Console.ReadLine());
+                Console.Write("\nA UNIQUE 4-DIGIT ONLINE ACCESS ID HERE (DON'T FORGET): ");
+                var access = Convert.ToInt32(Console.ReadLine());
 
                 Console.Write("FIRST NAME: ");
                 var first = Console.ReadLine().ToUpper();
@@ -36,33 +36,47 @@ namespace TwentyOne
                 var dob = Console.ReadLine().ToUpper();
 
                 //USE CHAINED 'Employee' CONSTRUCTORS THAT DISPLAY A DEFAULT A MESSAGE ABOUT THE EMPLOYEES DEPARTMENT NAME
-                var employee = new Employee(id, first, last, dob) {Full = new List<string>()};
-                //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Employee' PROPERTY OF 'empID'
-                employee.empID = Guid.NewGuid();
-
-                Console.Write("\nIF EVERYTHING IS CORRECT, TYPE \"Y\"" +
-                    "\nIF YOU WANT TO CHANGE ANYTHING, TYPE \"N\": ");
-                string answer = Console.ReadLine().ToUpper();
+                var employee = new Employee(access, first, last, dob);
+                List<string> all = employee.Full;
+                
+                Console.Write("\nWE WILL NOW PROCEED TO VERIFY AND STORE YOUR INFORMATION." +
+                    "\n\nTHIS INFORMATION IS KEPT PRIVATE IN OUR EMPLOYEE RECORDS." +
+                    "\n\n\tTYPE \"Y\" IF YOU UNDERSTAND AND AGREE TO CONTINUE." +
+                    "\n\tTYPE \"N\" IF YOU WISH TO STOP AND EXIT THE PROGRAM." +
+                    "\n\n\tANSWER: (\"Y\" OR \"N\") ");
+                string answer = Console.ReadLine().ToUpper();               
 
                 //CONTROL CONDITIONS FOR VERIFYING INFO
                 bool display = (answer == "Y");
                 if (display)
                 {
-                    employee.Validate = true;
-                    employee.Verify();
-                    foreach (string value in employee.Full)
-                    {
-                        StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Basic_C#_Programs - Copy\TwentyOne\TwentyOne\EmployeeLog.txt");
-                        {
-                            file.WriteLine(value.ToString());
-                        }
+                    //CALL 'Verify' METHOD
+                    employee.Verify();             
+                    //INSTANTIATE NEW OBJECT OF CLASS 'StreamWriter'
+                    StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Logs\EmployeeLog.txt", true); //'true' ALLOWS 'file' TO BE APPENDED INSTEAD OF OVERWRITTEN
+                    //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Employee' PROPERTY OF 'empID'
+                    string empID = Convert.ToString(employee.EmpID);
+                    file.WriteLine(empID);
+                    //LOG ALL VALUES IN THE LIST PROPERTY 'Full' THAT ARE IN THE 'Employee' CLASS OBJECT 'employee' AND 
+                    foreach (string value in all)
+                    {                        
+                        file.WriteLine(value);                     
                     }
-                    run = false;
+                    Console.WriteLine("\nYOUR ONLINE EMPLOYEE SETUP IS COMPLETE!!!");
+                    break;
                 }
-                
+                if (!display && answer != "N")
+                {
+                    break;
+                }
+                if (!display)
+                {
+                    run = true;
+                }
             }
             //DO-WHILE LOOP RUNS IF USER ANSWERS 'N' AND NEEDS TO CHANGE INFO 
             while (run);
+            Console.ReadLine();
         }
     }
 }
