@@ -32,7 +32,8 @@ namespace Casino
         public string Department { get; set; }
         public List<string> Full { get; set; }
 
-        public void Verify()
+        //METHOD IF USER WANTS TO VERIFY AND SAVE THEIR ENTERED SETUP INFORMATION
+        public bool Verify()
         {
             Console.WriteLine("\n------------------------ FINAL VERIFICATION!!! ------------------------" +
                 "\n\n(PLEASE CHECK YOUR INFORMATION BELOW FOR ACCURACY)" +
@@ -41,8 +42,7 @@ namespace Casino
                 "\n\n\tDOB: {3}" +
                 "\n\n\tDEPARTMENT: {4}", AccessID, First, Last, DOB, Department);
             //VERIFY THAT EVERYTHING LOOKS CORRECT
-            Console.Write("\nTO CONFIRM AND SAVE, ENTER YOUR UNIQUE 4-DIGIT ONLINE ACCESS ID." +
-                "\n\n(TO GO BACK OR MAKE CHANGES ENTER \"0000\")");
+            Console.Write("\nTO CONFIRM AND SAVE, ENTER YOUR UNIQUE 4-DIGIT ONLINE ACCESS ID.");
 
             //CONTROLLED DO-WHILE LOOP TO ESTABLISH AND SAVE THE CORRECT ID
             bool go = true;          
@@ -55,21 +55,32 @@ namespace Casino
                 //CONDITIONS IF EVERYTHING IS ACCURATE AND THE 'AccessID' MATCHES THE ANSWER IN INTEGER FORM AS VARIABLE 'accessID'
                 if (verified == true)
                 {
-                    go = false;
+                    List<string> all = Full;
+                    //INSTANTIATE NEW GUID (GLOBAL UNIQUE IDENTIFIER) WITH THE 'Player' PROPERTY OF 'ID'
+                    EmpID = Guid.NewGuid();
+                    //LOG THE USERS NAME 
+                    using (StreamWriter file = new StreamWriter(@"C:\Users\Student\Desktop\Basic_C#_Programs - Copy\TwentyOne\TwentyOne\EmployeeLog.txt", true)) //'true' APPENDS THE LIST, RATHER THAN OVERWRITING IT EACH TIME.
+                    {
+                        file.Write("\nEMPLOYEE ID: {0}", EmpID);
+                        //LOG ALL VALUES IN THE LIST PROPERTY 'Full' THAT ARE IN THE 'Employee' CLASS OBJECT 'employee' AND                       
+                        file.WriteLine("\nONLINE ACCESS ID: {0}" +
+                            "\nLAST NAME: {1}" +
+                            "\nFIRST NAME: {2}" +
+                            "\nDOB: {3}" +
+                            "\nDEPARTMENT: {4}", all.ElementAt(0), all.ElementAt(2), all.ElementAt(1), all.ElementAt(3), all.ElementAt(4));
+                    }
+                    Console.WriteLine("\nYOUR ONLINE EMPLOYEE SETUP IS COMPLETE!!!");
+                    go = false;               
                 }
                 //IF THE USER TYPED IN THE 'AccessID' WRONG
-                if (verified == false && accessID != 0000)
+                if (!verified)
                 {
                     Console.Write("\nINCORRECT ACCESS ID: PLEASE TRY AGAIN");
                     go = true;
                 }
-                //CONDITIONS IF THE USER WANTS TO GO BACK AND MAKE CHANGES
-                if (accessID == 0000)
-                {
-                    return;
-                }
             }
             while (go);
+            return true;
         }
     }
 }
